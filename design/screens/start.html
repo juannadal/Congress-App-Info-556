@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start · Congress Bio Search</title>
+<!-- Static snapshot of the "Start" screen. Plain HTML and CSS, no JavaScript.
+     Classes starting with cb- come from ../design-system/components/bundle.css; every colour, space and radius is a variable from ../design-system/tokens.css.
+     For the dark theme, change data-theme="light" to data-theme="dark" on the first div. -->
+<link rel="stylesheet" href="../design-system/tokens.css">
+<link rel="stylesheet" href="../design-system/components/bundle.css">
+<style>
+body{margin:0}
+a{color:inherit}a:hover{text-decoration-thickness:2px}
+</style>
+</head>
+<body>
+<div data-theme="light" style="min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 15px; line-height: 22px;">
+<header style="border-bottom: 1px solid var(--rule);">
+<div style="max-width: 1200px; margin: 0px auto; padding: 0px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0px 32px; min-height: 64px;">
+<a href="start.html" style="display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-serif); font-size: 20px; line-height: 26px; font-weight: 600; text-decoration: none;">Congress Bio Search</a><nav aria-label="Sections" style="display: flex; flex-wrap: wrap; gap: 0px 24px;">
+<a href="start.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--ink); font-size: 13px; line-height: 18px; font-weight: 600; text-decoration: none;">Search</a><a href="compare.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Compare methods</a><a href="evaluation.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Evaluation</a></nav>
+</div>
+</header>
+<main style="flex-grow: 1;">
+<div style="max-width: 1200px; margin: 0px auto; padding: 48px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 48px;">
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 24px;">
+<h1 style="margin: 0px; font-family: var(--font-serif); font-size: 40px; line-height: 44px; font-weight: 600; letter-spacing: -0.01em; text-wrap: balance;">Look up the members of the 119th Congress</h1>
+<p style="margin: 0px; max-width: 60ch;">Ask a question in everyday words. You get passages from each member's Wikipedia biography, with the name, chamber, party and state of the member the passage is about.</p>
+<form class="cb-search" role="search">
+<div class="cb-search-field">
+<input class="cb-search-input" type="search" name="q" aria-label="Search member biographies" placeholder="Ask in everyday words" autocomplete="off"></div>
+<button type="submit" class="cb-btn cb-btn-primary">Search</button>
+</form>
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<div style="font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; color: var(--ink-muted);">
+TRY A QUESTION</div>
+<div style="display: flex; flex-direction: column; align-items: flex-start;">
+<a href="results.html" style="display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline 1px; text-underline-offset: 3px;">members who were teachers before entering politics</a><a href="results.html" style="display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline 1px; text-underline-offset: 3px;">California representatives who were prosecutors</a><a href="results.html" style="display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline 1px; text-underline-offset: 3px;">chair of the Senate Armed Services Committee</a></div>
+</div>
+</div>
+<section aria-labelledby="ways" style="display: flex; flex-direction: column; gap: 16px;">
+<h2 id="ways" style="margin: 0px; font-size: 18px; line-height: 24px; font-weight: 600;">Three ways to search</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px;">
+<div style="box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--paper-raised);">
+<span class="cb-method cb-method-keyword"><span>Keyword</span><span class="cb-method-detail">BM25</span></span>
+<p style="margin: 0px;">Ranks passages by the words they share with your question, and counts rarer words for more. A search for “veteran” will not find “served in the Marine Corps”.</p>
+</div>
+<div style="box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--paper-raised);">
+<span class="cb-method cb-method-semantic"><span>Meaning</span><span class="cb-method-detail">MiniLM</span></span>
+<p style="margin: 0px;">Compares what your question means with what each passage means, and returns the closest. It can find a passage that shares no words with the question.</p>
+</div>
+<div style="box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--paper-raised);">
+<span class="cb-method cb-method-hybrid"><span>Hybrid</span><span class="cb-method-detail">RRF</span></span>
+<p style="margin: 0px;">Runs both and merges the two rankings, so a passage that does well in either one can rise to the top. This is the default.</p>
+</div>
+</div>
+<a href="compare.html" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: underline 1px; text-underline-offset: 3px;">Compare the three side by side</a></section>
+</div>
+</main>
+<footer style="border-top: 1px solid var(--rule);">
+<div style="max-width: 1200px; margin: 0px auto; padding: 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; font-size: 12px; line-height: 16px; color: var(--ink-muted);">
+<span style="max-width: 68ch;">Passages come from Wikipedia, which is not a verified source. Read the full article before relying on one. A student research project, not an official product of Congress.</span><span style="font-family: var(--font-mono);">555 articles · 18,434 passages · snapshot [SNAPSHOT DATE]</span></div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+﻿query_id,group,query,method,ndcg,recall,mrr,unjudged
+k01,keyword,chair of the House Armed Services Committee,bm25,0.8301470434655067,0.5882352941176471,1.0,0
+k01,keyword,chair of the House Armed Services Committee,dense,0.5288165681272131,0.4117647058823529,1.0,0
+k01,keyword,chair of the House Armed Services Committee,hybrid,0.701345644294785,0.5294117647058824,1.0,0
+k01,keyword,chair of the House Armed Services Committee,rerank,0.8246005669326749,0.5882352941176471,1.0,0
+k02,keyword,Speaker of the House,bm25,0.8295019752555853,0.5882352941176471,1.0,0
+k02,keyword,Speaker of the House,dense,0.674231086383117,0.5882352941176471,1.0,0
+k02,keyword,Speaker of the House,hybrid,0.7689223999338228,0.5882352941176471,1.0,0
+k02,keyword,Speaker of the House,rerank,0.9945892332821068,0.5882352941176471,1.0,0
+k03,keyword,Senate Majority Leader,bm25,0.3697811779319078,0.3333333333333333,1.0,0
+k03,keyword,Senate Majority Leader,dense,0.4492568840972541,0.4,1.0,0
+k03,keyword,Senate Majority Leader,hybrid,0.5278339930883935,0.4666666666666667,1.0,0
+k03,keyword,Senate Majority Leader,rerank,0.9948087233764681,0.6666666666666666,1.0,0
+k04,keyword,House Majority Whip,bm25,0.7320904168037016,0.4666666666666667,1.0,0
+k04,keyword,House Majority Whip,dense,0.5674258362409779,0.5333333333333333,1.0,0
+k04,keyword,House Majority Whip,hybrid,0.6892853813528855,0.4,1.0,0
+k04,keyword,House Majority Whip,rerank,1.0,0.6666666666666666,1.0,0
+k05,keyword,president pro tempore of the Senate,bm25,0.6146796784829198,0.5555555555555556,1.0,0
+k05,keyword,president pro tempore of the Senate,dense,0.5182581946682101,0.4444444444444444,1.0,0
+k05,keyword,president pro tempore of the Senate,hybrid,0.7550621285319524,0.5555555555555556,1.0,0
+k05,keyword,president pro tempore of the Senate,rerank,0.9006045842274006,0.7777777777777778,1.0,0
+k06,keyword,impeachment manager,bm25,1.0,0.7142857142857143,1.0,0
+k06,keyword,impeachment manager,dense,0.9668728882728055,0.7142857142857143,1.0,0
+k06,keyword,impeachment manager,hybrid,1.0,0.7142857142857143,1.0,0
+k06,keyword,impeachment manager,rerank,1.0,0.7142857142857143,1.0,0
+k07,keyword,Congressional Progressive Caucus,bm25,1.0,0.5263157894736842,1.0,0
+k07,keyword,Congressional Progressive Caucus,dense,0.8643145546088339,0.42105263157894735,1.0,0
+k07,keyword,Congressional Progressive Caucus,hybrid,1.0,0.5263157894736842,1.0,0
+k07,keyword,Congressional Progressive Caucus,rerank,1.0,0.5263157894736842,1.0,0
+k08,keyword,Freedom Caucus founding member,bm25,0.7213003801788925,0.35,1.0,0
+k08,keyword,Freedom Caucus founding member,dense,0.8717547463057782,0.5,1.0,0
+k08,keyword,Freedom Caucus founding member,hybrid,1.0,0.5,1.0,0
+k08,keyword,Freedom Caucus founding member,rerank,1.0,0.5,1.0,0
+k09,keyword,West Point graduate,bm25,0.8341368454242226,0.8,1.0,0
+k09,keyword,West Point graduate,dense,0.411663410948346,0.5,0.3333333333333333,0
+k09,keyword,West Point graduate,hybrid,0.7571313334171631,0.7,1.0,0
+k09,keyword,West Point graduate,rerank,1.0,1.0,1.0,0
+k10,keyword,Eagle Scout,bm25,1.0,0.9090909090909091,1.0,0
+k10,keyword,Eagle Scout,dense,0.5326208815196266,0.36363636363636365,1.0,0
+k10,keyword,Eagle Scout,hybrid,0.8521705090845474,0.7272727272727273,1.0,0
+k10,keyword,Eagle Scout,rerank,1.0,0.9090909090909091,1.0,0
+k11,keyword,Rhodes Scholar,bm25,0.5906222333696757,0.4,1.0,0
+k11,keyword,Rhodes Scholar,dense,0.5460707349092462,0.4,1.0,0
+k11,keyword,Rhodes Scholar,hybrid,0.9302508157390691,1.0,1.0,0
+k11,keyword,Rhodes Scholar,rerank,0.9939666717992921,1.0,1.0,0
+k12,keyword,Navy SEAL,bm25,0.8357804136936722,0.6,1.0,0
+k12,keyword,Navy SEAL,dense,0.927673753783468,0.6666666666666666,1.0,0
+k12,keyword,Navy SEAL,hybrid,0.8911742177248007,0.6,1.0,0
+k12,keyword,Navy SEAL,rerank,1.0,0.6666666666666666,1.0,0
+k13,keyword,served as mayor,bm25,0.8264219451580569,0.47368421052631576,1.0,0
+k13,keyword,served as mayor,dense,0.7175651403856789,0.47368421052631576,1.0,0
+k13,keyword,served as mayor,hybrid,0.8205228949141828,0.47368421052631576,1.0,0
+k13,keyword,served as mayor,rerank,1.0,0.5263157894736842,1.0,0
+k14,keyword,awarded the Bronze Star,bm25,1.0,0.7142857142857143,1.0,0
+k14,keyword,awarded the Bronze Star,dense,0.535254316775064,0.2857142857142857,1.0,0
+k14,keyword,awarded the Bronze Star,hybrid,0.7849818707050383,0.5,1.0,0
+k14,keyword,awarded the Bronze Star,rerank,1.0,0.7142857142857143,1.0,0
+k15,keyword,state attorney general,bm25,0.8575928993931179,0.5,1.0,0
+k15,keyword,state attorney general,dense,0.7091387241129893,0.45,1.0,0
+k15,keyword,state attorney general,hybrid,0.7339295782400698,0.5,1.0,0
+k15,keyword,state attorney general,rerank,1.0,0.5,1.0,0
+k16,keyword,House Ways and Means Committee,bm25,1.0,0.625,1.0,0
+k16,keyword,House Ways and Means Committee,dense,0.857980942822373,0.5,1.0,0
+k16,keyword,House Ways and Means Committee,hybrid,1.0,0.625,1.0,0
+k16,keyword,House Ways and Means Committee,rerank,1.0,0.625,1.0,0
+k17,keyword,Select Committee on the January 6 Attack,bm25,0.7197325454367353,0.5625,1.0,0
+k17,keyword,Select Committee on the January 6 Attack,dense,0.39542844317188924,0.3125,0.5,0
+k17,keyword,Select Committee on the January 6 Attack,hybrid,0.6119272340281794,0.5,0.5,0
+k17,keyword,Select Committee on the January 6 Attack,rerank,1.0,0.625,1.0,0
+k18,keyword,Purple Heart,bm25,0.7075864452134321,0.875,0.5,0
+k18,keyword,Purple Heart,dense,0.26852556974265224,0.25,0.5,0
+k18,keyword,Purple Heart,hybrid,0.525420616322386,0.625,0.5,0
+k18,keyword,Purple Heart,rerank,0.9202054614375518,0.875,1.0,0
+k19,keyword,voted to override the veto,bm25,0.7780496502278127,0.5333333333333333,1.0,0
+k19,keyword,voted to override the veto,dense,0.6961416613654765,0.4,1.0,0
+k19,keyword,voted to override the veto,hybrid,0.8469232257273609,0.6,1.0,0
+k19,keyword,voted to override the veto,rerank,0.9627838097243431,0.6666666666666666,1.0,0
+k20,keyword,redistricting lawsuit,bm25,0.3279835143460946,0.21428571428571427,1.0,0
+k20,keyword,redistricting lawsuit,dense,0.8760654629438599,0.6428571428571429,1.0,0
+k20,keyword,redistricting lawsuit,hybrid,0.5695622396229981,0.5,1.0,0
+k20,keyword,redistricting lawsuit,rerank,0.7667473858549847,0.5714285714285714,1.0,0
+c01,conceptual,members who were teachers before entering politics,bm25,0.5173633627401373,0.36363636363636365,1.0,0
+c01,conceptual,members who were teachers before entering politics,dense,0.31833954895937194,0.2727272727272727,0.5,0
+c01,conceptual,members who were teachers before entering politics,hybrid,0.4085353881236094,0.45454545454545453,0.5,0
+c01,conceptual,members who were teachers before entering politics,rerank,0.9681896059005243,0.9090909090909091,1.0,0
+c02,conceptual,grew up poor,bm25,0.6532722988523507,0.5,1.0,0
+c02,conceptual,grew up poor,dense,0.22157315579484368,0.3333333333333333,0.25,0
+c02,conceptual,grew up poor,hybrid,0.6066669384747737,0.5,1.0,0
+c02,conceptual,grew up poor,rerank,0.9344676861185064,0.8333333333333334,1.0,0
+c03,conceptual,born outside the United States,bm25,0.0,0.0,0.0,0
+c03,conceptual,born outside the United States,dense,0.0,0.0,0.0,0
+c03,conceptual,born outside the United States,hybrid,0.5478510149086853,1.0,0.25,0
+c03,conceptual,born outside the United States,rerank,1.0,1.0,1.0,0
+c04,conceptual,had a medical career before Congress,bm25,0.1663337293051729,0.15384615384615385,0.25,0
+c04,conceptual,had a medical career before Congress,dense,0.4585872828368244,0.46153846153846156,0.5,0
+c04,conceptual,had a medical career before Congress,hybrid,0.6634409036014837,0.5384615384615384,1.0,0
+c04,conceptual,had a medical career before Congress,rerank,0.8591855593017524,0.6923076923076923,1.0,0
+c05,conceptual,senators who worked on Iraq bills,bm25,0.5631535807363917,0.5294117647058824,1.0,0
+c05,conceptual,senators who worked on Iraq bills,dense,0.48864468918810133,0.23529411764705882,1.0,0
+c05,conceptual,senators who worked on Iraq bills,hybrid,0.8108483496619153,0.5294117647058824,1.0,0
+c05,conceptual,senators who worked on Iraq bills,rerank,1.0,0.5882352941176471,1.0,0
+c06,conceptual,grew up working on a family farm or ranch,bm25,0.7993541398252407,0.5,1.0,0
+c06,conceptual,grew up working on a family farm or ranch,dense,0.44437563488320425,0.35,1.0,0
+c06,conceptual,grew up working on a family farm or ranch,hybrid,0.6012858774681131,0.45,1.0,0
+c06,conceptual,grew up working on a family farm or ranch,rerank,0.8026027141227,0.5,1.0,0
+c07,conceptual,survived a cancer diagnosis,bm25,0.67175898907361,0.4666666666666667,1.0,0
+c07,conceptual,survived a cancer diagnosis,dense,0.9608008655106625,0.6666666666666666,1.0,0
+c07,conceptual,survived a cancer diagnosis,hybrid,0.8669479898642711,0.6,1.0,0
+c07,conceptual,survived a cancer diagnosis,rerank,1.0,0.6666666666666666,1.0,0
+c08,conceptual,flew combat aircraft in the military,bm25,0.6488036472826091,0.5,1.0,0
+c08,conceptual,flew combat aircraft in the military,dense,0.8073953687274107,0.6666666666666666,1.0,0
+c08,conceptual,flew combat aircraft in the military,hybrid,0.8519548506492925,0.6666666666666666,1.0,0
+c08,conceptual,flew combat aircraft in the military,rerank,0.9595129567076089,0.8333333333333334,1.0,0
+c09,conceptual,former television news reporters,bm25,0.5000570224037613,0.4,1.0,0
+c09,conceptual,former television news reporters,dense,0.6433495827340141,0.5,1.0,0
+c09,conceptual,former television news reporters,hybrid,0.9147490278958643,0.8,1.0,0
+c09,conceptual,former television news reporters,rerank,0.9659804619501942,0.9,1.0,0
+c10,conceptual,politicians who switched political parties,bm25,0.747935059673333,0.6153846153846154,1.0,0
+c10,conceptual,politicians who switched political parties,dense,0.6274092458891773,0.38461538461538464,1.0,0
+c10,conceptual,politicians who switched political parties,hybrid,0.9337457765456111,0.6923076923076923,1.0,0
+c10,conceptual,politicians who switched political parties,rerank,1.0,0.7692307692307693,1.0,0
+c11,conceptual,first in their family to graduate from college,bm25,0.7618870795651186,0.6666666666666666,1.0,0
+c11,conceptual,first in their family to graduate from college,dense,0.08747171410140821,0.16666666666666666,0.1,0
+c11,conceptual,first in their family to graduate from college,hybrid,0.646963850918051,0.8333333333333334,0.5,0
+c11,conceptual,first in their family to graduate from college,rerank,1.0,1.0,1.0,0
+c12,conceptual,founded a business before running for office,bm25,0.5957616317188127,0.2857142857142857,1.0,0
+c12,conceptual,founded a business before running for office,dense,0.49699597403588075,0.42857142857142855,0.5,0
+c12,conceptual,founded a business before running for office,hybrid,0.6543437730512592,0.3333333333333333,1.0,0
+c12,conceptual,founded a business before running for office,rerank,0.894274860442798,0.47619047619047616,1.0,0
+c13,conceptual,worked in law enforcement before Congress,bm25,0.19659854109651376,0.2222222222222222,0.2,0
+c13,conceptual,worked in law enforcement before Congress,dense,0.4349910017285182,0.4444444444444444,1.0,0
+c13,conceptual,worked in law enforcement before Congress,hybrid,0.5431790304447967,0.5555555555555556,0.5,0
+c13,conceptual,worked in law enforcement before Congress,rerank,0.9160801914007335,0.7777777777777778,1.0,0
+c14,conceptual,parents immigrated to the United States,bm25,0.535254316775064,0.21052631578947367,1.0,0
+c14,conceptual,parents immigrated to the United States,dense,0.5235809458423979,0.3684210526315789,0.5,0
+c14,conceptual,parents immigrated to the United States,hybrid,0.7104770117651427,0.47368421052631576,0.5,0
+c14,conceptual,parents immigrated to the United States,rerank,1.0,0.5263157894736842,1.0,0
+c15,conceptual,pastors and ministers in Congress,bm25,0.5212960629027201,0.4166666666666667,1.0,0
+c15,conceptual,pastors and ministers in Congress,dense,0.2820124156234257,0.3333333333333333,0.25,0
+c15,conceptual,pastors and ministers in Congress,hybrid,0.5519699720241615,0.5,0.5,0
+c15,conceptual,pastors and ministers in Congress,rerank,1.0,0.8333333333333334,1.0,0
+c16,conceptual,trained as scientists or engineers,bm25,0.4265076985331693,0.3333333333333333,1.0,0
+c16,conceptual,trained as scientists or engineers,dense,0.44268180109033056,0.4166666666666667,1.0,0
+c16,conceptual,trained as scientists or engineers,hybrid,0.8643145546088339,0.6666666666666666,1.0,0
+c16,conceptual,trained as scientists or engineers,rerank,0.9032521000738538,0.75,1.0,0
+c17,conceptual,objected to certifying the 2020 presidential election results,bm25,0.8643145546088339,0.45,1.0,0
+c17,conceptual,objected to certifying the 2020 presidential election results,dense,0.6224388698437667,0.4,0.5,0
+c17,conceptual,objected to certifying the 2020 presidential election results,hybrid,0.8868861200529361,0.45,1.0,0
+c17,conceptual,objected to certifying the 2020 presidential election results,rerank,1.0,0.5,1.0,0
+c18,conceptual,wants to get rid of the Senate's 60-vote rule,bm25,0.18548542804492563,0.25,0.3333333333333333,0
+c18,conceptual,wants to get rid of the Senate's 60-vote rule,dense,0.7182178311656556,0.5833333333333334,1.0,0
+c18,conceptual,wants to get rid of the Senate's 60-vote rule,hybrid,0.8084474443189519,0.6666666666666666,1.0,0
+c18,conceptual,wants to get rid of the Senate's 60-vote rule,rerank,0.9546130293314252,0.8333333333333334,1.0,0
+c19,conceptual,fought against partisan district maps,bm25,0.8046675014141283,0.5263157894736842,1.0,0
+c19,conceptual,fought against partisan district maps,dense,0.7505277747615184,0.5263157894736842,1.0,0
+c19,conceptual,fought against partisan district maps,hybrid,0.8296323439621746,0.5263157894736842,1.0,0
+c19,conceptual,fought against partisan district maps,rerank,0.8892518789887801,0.47368421052631576,1.0,0
+c20,conceptual,accused of misusing campaign money,bm25,0.22699939489013696,0.2,0.3333333333333333,0
+c20,conceptual,accused of misusing campaign money,dense,0.7908714684761688,0.5333333333333333,1.0,0
+c20,conceptual,accused of misusing campaign money,hybrid,0.5839477638669848,0.4,1.0,0
+c20,conceptual,accused of misusing campaign money,rerank,0.9681896059005243,0.6666666666666666,1.0,0
+f01,filtered,former prosecutor,bm25,0.3848575378425721,0.38461538461538464,0.5,0
+f01,filtered,former prosecutor,dense,0.6708059931254896,0.6153846153846154,1.0,0
+f01,filtered,former prosecutor,hybrid,0.6553384466459381,0.46153846153846156,1.0,0
+f01,filtered,former prosecutor,rerank,0.9212368702277998,0.6153846153846154,1.0,0
+f02,filtered,served in the military,bm25,0.4701017400374073,0.29411764705882354,0.5,0
+f02,filtered,served in the military,dense,0.8611375561264456,0.5294117647058824,1.0,0
+f02,filtered,served in the military,hybrid,1.0,0.5882352941176471,1.0,0
+f02,filtered,served in the military,rerank,1.0,0.5882352941176471,1.0,0
+f03,filtered,small business owner,bm25,0.696879218823036,0.43478260869565216,1.0,0
+f03,filtered,small business owner,dense,0.7741663886122352,0.43478260869565216,1.0,0
+f03,filtered,small business owner,hybrid,0.7508746771038861,0.43478260869565216,1.0,0
+f03,filtered,small business owner,rerank,0.9350624941733298,0.43478260869565216,1.0,0
+f04,filtered,former judge,bm25,0.6286182322511321,0.4375,1.0,0
+f04,filtered,former judge,dense,0.7068744892750183,0.5625,1.0,0
+f04,filtered,former judge,hybrid,0.697288832276726,0.5,1.0,0
+f04,filtered,former judge,rerank,1.0,0.625,1.0,0
+f05,filtered,immigrated to the United States,bm25,0.32643213774721475,0.24,1.0,0
+f05,filtered,immigrated to the United States,dense,0.5001506623774201,0.28,1.0,0
+f05,filtered,immigrated to the United States,hybrid,0.6718483456960728,0.4,1.0,0
+f05,filtered,immigrated to the United States,rerank,0.9286024279819315,0.4,1.0,0
+f06,filtered,former governor,bm25,0.33395355749173716,0.23529411764705882,0.5,0
+f06,filtered,former governor,dense,0.8160393713932337,0.5882352941176471,1.0,0
+f06,filtered,former governor,hybrid,0.671670100819635,0.47058823529411764,1.0,0
+f06,filtered,former governor,rerank,0.9057779239361424,0.5882352941176471,1.0,0
+f07,filtered,physician,bm25,0.7951657524814092,0.42105263157894735,1.0,0
+f07,filtered,physician,dense,0.8643145546088339,0.42105263157894735,1.0,0
+f07,filtered,physician,hybrid,0.8868861200529361,0.47368421052631576,1.0,0
+f07,filtered,physician,rerank,1.0,0.5263157894736842,1.0,0
+f08,filtered,speaker of the state house,bm25,0.4866487355659361,0.5555555555555556,0.5,0
+f08,filtered,speaker of the state house,dense,0.32891044670047076,0.4444444444444444,0.25,0
+f08,filtered,speaker of the state house,hybrid,0.3503976669149755,0.3333333333333333,0.5,0
+f08,filtered,speaker of the state house,rerank,1.0,1.0,1.0,0
+f09,filtered,served in the state legislature,bm25,0.8437800355400251,0.47368421052631576,1.0,0
+f09,filtered,served in the state legislature,dense,0.22793826167775835,0.15789473684210525,0.2,0
+f09,filtered,served in the state legislature,hybrid,0.5036067026046992,0.21052631578947367,1.0,0
+f09,filtered,served in the state legislature,rerank,1.0,0.5263157894736842,1.0,0
+f10,filtered,military veteran,bm25,0.2715173913456466,0.3,1.0,0
+f10,filtered,military veteran,dense,0.645977970240218,0.7,0.5,0
+f10,filtered,military veteran,hybrid,0.24464059355106016,0.3,1.0,0
+f10,filtered,military veteran,rerank,0.8755199361585813,0.8,1.0,0

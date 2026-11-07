@@ -1,0 +1,24 @@
+// Cloudflare Worker + Container for the public Congress search site. Deploy from this folder with
+// `npx wrangler deploy` (Docker Desktop must be running: Wrangler builds ../Dockerfile and uploads it).
+// See ../DEPLOY.md.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "congress-search",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "observability": { "enabled": true },
+  "containers": [
+    {
+      "class_name": "CongressApp",
+      "image": "../Dockerfile",
+      "image_build_context": "..",
+      // 1/2 vCPU, 4 GiB memory, 8 GB disk: PyTorch, MiniLM, and the indexes need about 1.5 GB of memory
+      "instance_type": "standard-1",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "CONGRESS_APP", "class_name": "CongressApp" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["CongressApp"] }]
+}

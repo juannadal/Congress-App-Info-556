@@ -1,0 +1,27 @@
+.git
+.gitignore
+.claude
+.agents
+**/__pycache__
+**/*.pyc
+.DS_Store
+.env
+*.env
+.env*
+congress-api
+design
+windows
+data/raw
+_to_delete
+*.docx
+*.pdf
+eval/judgments.xlsx
+eval/judgments_backup.csv
+eval/label_events_*.csv
+eval/query_log.csv
+# Only passages_119.jsonl and the portraits are used by the app
+data/sponsored_*
+data/wikipedia_articles_*
+data/passages_119.csv
+scripts
+cloudflare

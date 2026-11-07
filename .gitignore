@@ -1,0 +1,32 @@
+# Secrets: never commit keys (the Anthropic key lives in ~/.info556/.env, outside this folder)
+.env
+.env*
+*.env
+congress-api/.env*
+
+# Personal and course documents (proposal, update, instructor feedback, syllabus material)
+*.docx
+*.pdf
+~$*
+Project_Proposal_Nadal.md
+Proposal_Feedback.md
+Proposal_Requirements.md
+Schedule_Check_*.md
+
+# Raw API downloads (re-create with the scripts in scripts/)
+data/raw/
+
+# Old files and local copies
+_to_delete/
+eval/judgments.xlsx
+eval/judgments_backup.csv
+
+# Python, OS, and tool folders
+__pycache__/
+*.pyc
+.DS_Store
+.claude/
+.agents/
+
+# AI overview answers (rebuilt on demand)
+cache/

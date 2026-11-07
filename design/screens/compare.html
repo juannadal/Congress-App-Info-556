@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare methods · Congress Bio Search</title>
+<!-- Static snapshot of the "Compare methods" screen. Plain HTML and CSS, no JavaScript.
+     Classes starting with cb- come from ../design-system/components/bundle.css; every colour, space and radius is a variable from ../design-system/tokens.css.
+     For the dark theme, change data-theme="light" to data-theme="dark" on the first div. -->
+<link rel="stylesheet" href="../design-system/tokens.css">
+<link rel="stylesheet" href="../design-system/components/bundle.css">
+<style>
+body{margin:0}
+a{color:inherit}a:hover{text-decoration-thickness:2px}
+</style>
+</head>
+<body>
+<div data-theme="light" style="min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 15px; line-height: 22px;">
+<header style="border-bottom: 1px solid var(--rule);">
+<div style="max-width: 1392px; margin: 0px auto; padding: 0px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0px 32px; min-height: 64px;">
+<a href="start.html" style="display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-serif); font-size: 20px; line-height: 26px; font-weight: 600; text-decoration: none;">Congress Bio Search</a><nav aria-label="Sections" style="display: flex; flex-wrap: wrap; gap: 0px 24px;">
+<a href="start.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Search</a><a href="compare.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--ink); font-size: 13px; line-height: 18px; font-weight: 600; text-decoration: none;">Compare methods</a><a href="evaluation.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Evaluation</a></nav>
+</div>
+</header>
+<main style="flex-grow: 1;">
+<div style="max-width: 1392px; margin: 0px auto; padding: 32px 24px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 16px;">
+<h1 style="margin: 0px; font-family: var(--font-serif); font-size: 40px; line-height: 44px; font-weight: 600; letter-spacing: -0.01em;">One question, three rankings</h1>
+<p style="margin: 0px; max-width: 60ch;">Each column ranks the same passages a different way. Look for where a passage lands in each list, and which list leaves it out.</p>
+<form class="cb-search" role="search">
+<div class="cb-search-field">
+<input class="cb-search-input" type="search" name="q" aria-label="Search member biographies" placeholder="Ask in everyday words" autocomplete="off" value="members who were teachers before entering politics"></div>
+<button type="submit" class="cb-btn cb-btn-primary">Search</button>
+</form>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; margin-right: 8px;">Searching within</span>
+<button type="button" class="cb-chip" aria-pressed="true"><span>House</span></button>
+<button type="button" class="cb-chip" aria-pressed="true"><span>California</span></button>
+<a href="results.html" style="display: inline-flex; align-items: center; min-height: 44px; margin-left: 8px; font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: underline 1px; text-underline-offset: 3px;">Change filters</a></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 16px; align-items: start;">
+<section aria-labelledby="col-keyword" style="min-width: 0px; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-height: 76px;">
+<h2 id="col-keyword" style="margin: 0px; display: flex;">
+<span class="cb-method cb-method-keyword"><span>Keyword</span><span class="cb-method-detail">BM25</span></span>
+</h2>
+<p style="margin: 0px; font-size: 13px; line-height: 18px; color: var(--ink-muted);">Ranked by shared words. The highlighted words matched your question.</p>
+</div>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 1">
+1</div>
+<div class="cb-result-photo" aria-hidden="true">
+DO</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Daniel Okonkwo-Reyes</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-rep"><span class="cb-party-letter" aria-hidden="true">R</span><span>Republican</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">A former middle school science <mark>teacher</mark>, he spent nine years in the classroom before winning a seat on the city council, his first elected office.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">BM25 11.42</span></div>
+</div>
+</article>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 2">
+2</div>
+<div class="cb-result-photo" aria-hidden="true">
+PV</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Priya Venkataraman</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-dem"><span class="cb-party-letter" aria-hidden="true">D</span><span>Democrat</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">She worked as a substitute <mark>teacher</mark> while completing her law degree, and later taught constitutional law as an adjunct professor.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">BM25 10.87</span></div>
+</div>
+</article>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 3">
+3</div>
+<div class="cb-result-photo" aria-hidden="true">
+MF</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Marcus Feld</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-dem"><span class="cb-party-letter" aria-hidden="true">D</span><span>Democrat</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">Feld has said that <mark>members</mark> of his family discouraged him from <mark>entering</mark> <mark>politics</mark>, and that he first ran for office against their advice.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">BM25 9.95</span></div>
+</div>
+</article>
+</section>
+<section aria-labelledby="col-semantic" style="min-width: 0px; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-height: 76px;">
+<h2 id="col-semantic" style="margin: 0px; display: flex;">
+<span class="cb-method cb-method-semantic"><span>Meaning</span><span class="cb-method-detail">MiniLM</span></span>
+</h2>
+<p style="margin: 0px; font-size: 13px; line-height: 18px; color: var(--ink-muted);">Ranked by closeness in meaning. Nothing is highlighted, because no words need to match.</p>
+</div>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 1">
+1</div>
+<div class="cb-result-photo" aria-hidden="true">
+EW</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Eleanor Whitcombe</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-dem"><span class="cb-party-letter" aria-hidden="true">D</span><span>Democrat</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">Before entering politics she taught high school civics for eleven years and coached the debate team, then served two terms on the county school board.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">cosine 0.71</span></div>
+</div>
+</article>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 2">
+2</div>
+<div class="cb-result-photo" aria-hidden="true">
+HL</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Harold Lindqvist</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-rep"><span class="cb-party-letter" aria-hidden="true">R</span><span>Republican</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">Lindqvist began his career as a vocational instructor at a community college, where he ran the welding program for six years.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">cosine 0.66</span></div>
+</div>
+</article>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 3">
+3</div>
+<div class="cb-result-photo" aria-hidden="true">
+DO</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Daniel Okonkwo-Reyes</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-rep"><span class="cb-party-letter" aria-hidden="true">R</span><span>Republican</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">A former middle school science teacher, he spent nine years in the classroom before winning a seat on the city council, his first elected office.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">cosine 0.63</span></div>
+</div>
+</article>
+</section>
+<section aria-labelledby="col-hybrid" style="min-width: 0px; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-height: 76px;">
+<h2 id="col-hybrid" style="margin: 0px; display: flex;">
+<span class="cb-method cb-method-hybrid"><span>Hybrid</span><span class="cb-method-detail">RRF</span></span>
+</h2>
+<p style="margin: 0px; font-size: 13px; line-height: 18px; color: var(--ink-muted);">The two rankings merged. A passage that both lists rank well comes first.</p>
+</div>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 1">
+1</div>
+<div class="cb-result-photo" aria-hidden="true">
+DO</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Daniel Okonkwo-Reyes</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-rep"><span class="cb-party-letter" aria-hidden="true">R</span><span>Republican</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">A former middle school science <mark>teacher</mark>, he spent nine years in the classroom before winning a seat on the city council, his first elected office.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">RRF 0.0323</span></div>
+</div>
+</article>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 2">
+2</div>
+<div class="cb-result-photo" aria-hidden="true">
+EW</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Eleanor Whitcombe</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-dem"><span class="cb-party-letter" aria-hidden="true">D</span><span>Democrat</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">Before <mark>entering</mark> <mark>politics</mark> she taught high school civics for eleven years and coached the debate team, then served two terms on the county school board.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">RRF 0.0320</span></div>
+</div>
+</article>
+<article class="cb-result">
+<div class="cb-result-rank" aria-label="Rank 3">
+3</div>
+<div class="cb-result-photo" aria-hidden="true">
+PV</div>
+<div class="cb-result-body">
+<h3 class="cb-result-name">Priya Venkataraman</h3>
+<div class="cb-result-meta">
+<span>Representative</span><span aria-hidden="true">·</span><span class="cb-party cb-party-dem"><span class="cb-party-letter" aria-hidden="true">D</span><span>Democrat</span></span><span aria-hidden="true">·</span><span>California</span></div>
+<p class="cb-passage">She worked as a substitute <mark>teacher</mark> while completing her law degree, and later taught constitutional law as an adjunct professor.</p>
+<div class="cb-result-foot">
+<a class="cb-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read the full article on Wikipedia ↗</a><span class="cb-result-score">RRF 0.0317</span></div>
+</div>
+</article>
+</section>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;">
+<button type="button" class="cb-btn cb-btn-quiet">Show ranks 4 to 10</button>
+<a href="evaluation.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: underline 1px; text-underline-offset: 3px;">See how each method scores across all test questions</a></div>
+</div>
+</main>
+<footer style="border-top: 1px solid var(--rule);">
+<div style="max-width: 1392px; margin: 0px auto; padding: 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; font-size: 12px; line-height: 16px; color: var(--ink-muted);">
+<span style="max-width: 68ch;">Passages come from Wikipedia, which is not a verified source. Read the full article before relying on one. A student research project, not an official product of Congress.</span><span style="font-family: var(--font-mono);">555 articles · 18,434 passages · snapshot [SNAPSHOT DATE]</span></div>
+</footer>
+</div>
+</body>
+</html>

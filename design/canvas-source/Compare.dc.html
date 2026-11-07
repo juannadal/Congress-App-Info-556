@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Compare methods</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/biosearch/components/bundle.css">
+<script src="ds/biosearch/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:inherit}a:hover{text-decoration-thickness:2px}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1428px; box-sizing: border-box; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 15px; line-height: 22px;">
+<header style="border-bottom: 1px solid var(--rule);">
+<div style="max-width: 1392px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 32px; min-height: 64px;">
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-serif); font-size: 20px; line-height: 26px; font-weight: 600; text-decoration: none;">Congress Bio Search</a>
+<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; gap: 0 24px;">
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Search</a>
+<a href="Compare.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--ink); font-size: 13px; line-height: 18px; font-weight: 600; text-decoration: none;">Compare methods</a>
+<a href="Evaluation.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Evaluation</a>
+</nav>
+</div>
+</header>
+<main style="flex-grow: 1;">
+<div style="max-width: 1392px; margin: 0 auto; padding: 32px 24px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 16px;">
+<h1 style="margin: 0; font-family: var(--font-serif); font-size: 40px; line-height: 44px; font-weight: 600; letter-spacing: -0.01em;">One question, three rankings</h1>
+<p style="margin: 0; max-width: 60ch;">Each column ranks the same passages a different way. Look for where a passage lands in each list, and which list leaves it out.</p>
+<x-import component-from-global-scope="BioSearch.SearchBar" default-value="members who were teachers before entering politics"></x-import>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; margin-right: 8px;">Searching within</span>
+<x-import component-from-global-scope="BioSearch.FilterChip" selected="{{yes}}">House</x-import>
+<x-import component-from-global-scope="BioSearch.FilterChip" selected="{{yes}}">California</x-import>
+<a href="Results.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; margin-left: 8px; font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;">Change filters</a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 16px; align-items: start;">
+<section aria-labelledby="col-keyword" style="min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-height: 76px;">
+<h2 id="col-keyword" style="margin: 0; display: flex;"><x-import component-from-global-scope="BioSearch.MethodTag" method="keyword"></x-import></h2>
+<p style="margin: 0; font-size: 13px; line-height: 18px; color: var(--ink-muted);">Ranked by shared words. The highlighted words matched your question.</p>
+</div>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="1" name="Daniel Okonkwo-Reyes" chamber="Representative" party="R" state="California" href="https://en.wikipedia.org/" score="BM25 11.42">A former middle school science <mark>teacher</mark>, he spent nine years in the classroom before winning a seat on the city council, his first elected office.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="2" name="Priya Venkataraman" chamber="Representative" party="D" state="California" href="https://en.wikipedia.org/" score="BM25 10.87">She worked as a substitute <mark>teacher</mark> while completing her law degree, and later taught constitutional law as an adjunct professor.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="3" name="Marcus Feld" chamber="Representative" party="D" state="California" href="https://en.wikipedia.org/" score="BM25 9.95">Feld has said that <mark>members</mark> of his family discouraged him from <mark>entering</mark> <mark>politics</mark>, and that he first ran for office against their advice.</x-import>
+</section>
+<section aria-labelledby="col-semantic" style="min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-height: 76px;">
+<h2 id="col-semantic" style="margin: 0; display: flex;"><x-import component-from-global-scope="BioSearch.MethodTag" method="semantic"></x-import></h2>
+<p style="margin: 0; font-size: 13px; line-height: 18px; color: var(--ink-muted);">Ranked by closeness in meaning. Nothing is highlighted, because no words need to match.</p>
+</div>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="1" name="Eleanor Whitcombe" chamber="Representative" party="D" state="California" href="https://en.wikipedia.org/" score="cosine 0.71">Before entering politics she taught high school civics for eleven years and coached the debate team, then served two terms on the county school board.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="2" name="Harold Lindqvist" chamber="Representative" party="R" state="California" href="https://en.wikipedia.org/" score="cosine 0.66">Lindqvist began his career as a vocational instructor at a community college, where he ran the welding program for six years.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="3" name="Daniel Okonkwo-Reyes" chamber="Representative" party="R" state="California" href="https://en.wikipedia.org/" score="cosine 0.63">A former middle school science teacher, he spent nine years in the classroom before winning a seat on the city council, his first elected office.</x-import>
+</section>
+<section aria-labelledby="col-hybrid" style="min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-height: 76px;">
+<h2 id="col-hybrid" style="margin: 0; display: flex;"><x-import component-from-global-scope="BioSearch.MethodTag" method="hybrid"></x-import></h2>
+<p style="margin: 0; font-size: 13px; line-height: 18px; color: var(--ink-muted);">The two rankings merged. A passage that both lists rank well comes first.</p>
+</div>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="1" name="Daniel Okonkwo-Reyes" chamber="Representative" party="R" state="California" href="https://en.wikipedia.org/" score="RRF 0.0323">A former middle school science <mark>teacher</mark>, he spent nine years in the classroom before winning a seat on the city council, his first elected office.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="2" name="Eleanor Whitcombe" chamber="Representative" party="D" state="California" href="https://en.wikipedia.org/" score="RRF 0.0320">Before <mark>entering</mark> <mark>politics</mark> she taught high school civics for eleven years and coached the debate team, then served two terms on the county school board.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="3" name="Priya Venkataraman" chamber="Representative" party="D" state="California" href="https://en.wikipedia.org/" score="RRF 0.0317">She worked as a substitute <mark>teacher</mark> while completing her law degree, and later taught constitutional law as an adjunct professor.</x-import>
+</section>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;">
+<x-import component-from-global-scope="BioSearch.Button">Show ranks 4 to 10</x-import>
+<a href="Evaluation.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;">See how each method scores across all test questions</a>
+</div>
+</div>
+</main>
+<footer style="border-top: 1px solid var(--rule);">
+<div style="max-width: 1392px; margin: 0 auto; padding: 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; font-size: 12px; line-height: 16px; color: var(--ink-muted);">
+<span style="max-width: 68ch;">Passages come from Wikipedia, which is not a verified source. Read the full article before relying on one. A student research project, not an official product of Congress.</span>
+<span style="font-family: var(--font-mono);">555 articles · 18,434 passages · snapshot [SNAPSHOT DATE]</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":1428}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'light', yes: true };
+}
+}
+</script>
+</body>
+</html>

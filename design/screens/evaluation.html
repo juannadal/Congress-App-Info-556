@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluation · Congress Bio Search</title>
+<!-- Static snapshot of the "Evaluation" screen. Plain HTML and CSS, no JavaScript.
+     Classes starting with cb- come from ../design-system/components/bundle.css; every colour, space and radius is a variable from ../design-system/tokens.css.
+     For the dark theme, change data-theme="light" to data-theme="dark" on the first div. -->
+<link rel="stylesheet" href="../design-system/tokens.css">
+<link rel="stylesheet" href="../design-system/components/bundle.css">
+<style>
+body{margin:0}
+a{color:inherit}a:hover{text-decoration-thickness:2px}
+</style>
+</head>
+<body>
+<div data-theme="light" style="min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 15px; line-height: 22px;">
+<header style="border-bottom: 1px solid var(--rule);">
+<div style="max-width: 1200px; margin: 0px auto; padding: 0px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0px 32px; min-height: 64px;">
+<a href="start.html" style="display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-serif); font-size: 20px; line-height: 26px; font-weight: 600; text-decoration: none;">Congress Bio Search</a><nav aria-label="Sections" style="display: flex; flex-wrap: wrap; gap: 0px 24px;">
+<a href="start.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Search</a><a href="compare.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Compare methods</a><a href="evaluation.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--ink); font-size: 13px; line-height: 18px; font-weight: 600; text-decoration: none;">Evaluation</a></nav>
+</div>
+</header>
+<main style="flex-grow: 1;">
+<div style="max-width: 1200px; margin: 0px auto; padding: 32px 24px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px;">
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 16px;">
+<h1 style="margin: 0px; font-family: var(--font-serif); font-size: 40px; line-height: 44px; font-weight: 600; letter-spacing: -0.01em;">Which search works best?</h1>
+<p style="margin: 0px; max-width: 60ch;">Each method answers the same test questions. Its top 10 passages for every question are labelled by hand, then scored. Values appear here once the judgments are complete.</p>
+</div>
+<section aria-labelledby="scores" style="display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px;">
+<h2 id="scores" style="margin: 0px; font-size: 18px; line-height: 24px; font-weight: 600;">Scores by method</h2>
+<div role="group" aria-label="Question group" style="display: inline-flex; flex-wrap: wrap; border: 1px solid var(--rule-strong); border-radius: var(--radius-md); overflow: hidden;">
+<button type="button" aria-pressed="true" style="height: 36px; padding: 0px 16px; border-top: 0px; border-bottom: 0px; border-left: 0px; border-image: initial; border-right: 1px solid var(--rule-strong); background: var(--ink); color: var(--on-ink); font: 500 13px/18px var(--font-sans); cursor: pointer;">All questions</button>
+<button type="button" aria-pressed="false" style="height: 36px; padding: 0px 16px; border-top: 0px; border-bottom: 0px; border-left: 0px; border-image: initial; border-right: 1px solid var(--rule-strong); background: var(--paper-raised); color: var(--ink); font: 500 13px/18px var(--font-sans); cursor: pointer;">Same words</button>
+<button type="button" aria-pressed="false" style="height: 36px; padding: 0px 16px; border-top: 0px; border-bottom: 0px; border-left: 0px; border-image: initial; border-right: 1px solid var(--rule-strong); background: var(--paper-raised); color: var(--ink); font: 500 13px/18px var(--font-sans); cursor: pointer;">Different words</button>
+<button type="button" aria-pressed="false" style="height: 36px; padding: 0px 16px; border: 0px; background: var(--paper-raised); color: var(--ink); font: 500 13px/18px var(--font-sans); cursor: pointer;">With a filter</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 16px;">
+<div class="cb-metric">
+<div class="cb-metric-label">
+nDCG@10</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-keyword"><span>Keyword</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+<div class="cb-metric">
+<div class="cb-metric-label">
+nDCG@10</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-semantic"><span>Meaning</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+<div class="cb-metric">
+<div class="cb-metric-label">
+nDCG@10</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-hybrid"><span>Hybrid</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 16px;">
+<div class="cb-metric">
+<div class="cb-metric-label">
+Recall@10</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-keyword"><span>Keyword</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+<div class="cb-metric">
+<div class="cb-metric-label">
+Recall@10</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-semantic"><span>Meaning</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+<div class="cb-metric">
+<div class="cb-metric-label">
+Recall@10</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-hybrid"><span>Hybrid</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 16px;">
+<div class="cb-metric">
+<div class="cb-metric-label">
+MRR</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-keyword"><span>Keyword</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+<div class="cb-metric">
+<div class="cb-metric-label">
+MRR</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-semantic"><span>Meaning</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+<div class="cb-metric">
+<div class="cb-metric-label">
+MRR</div>
+<div class="cb-metric-value">
+[–]</div>
+<span class="cb-method cb-method-hybrid"><span>Hybrid</span></span><div class="cb-metric-note">
+Awaiting judgments</div>
+</div>
+</div>
+<p style="margin: 0px; max-width: 68ch; font-size: 12px; line-height: 16px; color: var(--ink-muted);">About 50 questions: about 20 that use the same words as the articles, about 20 that use different words, and 10 that include a filter. Recall@10 counts only passages that at least one method returned. A difference is reported as real only when a significance test supports it.</p>
+</section>
+<section aria-labelledby="filtering" style="display: flex; flex-direction: column; gap: 16px;">
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 8px;">
+<h2 id="filtering" style="margin: 0px; font-size: 18px; line-height: 24px; font-weight: 600;">Filtering before or after the search</h2>
+<p style="margin: 0px; max-width: 60ch;">Filtering first searches only the passages that match the filter. Filtering after searches everything, keeps the top 10, 50 or 100, and discards what does not match, so fewer than 10 results may be left.</p>
+</div>
+<div style="overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--paper-raised);">
+<table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 13px; line-height: 18px;">
+<caption style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;">nDCG@10 and fill rate by filter and strategy, for hybrid search</caption>
+<thead>
+<tr style="background: var(--paper-sunk);">
+<th scope="col" style="padding: 12px 16px; text-align: left; font-weight: 600;">Filter</th>
+<th scope="col" style="padding: 12px 16px; text-align: right; font-weight: 600;">Filter first</th>
+<th scope="col" style="padding: 12px 16px; text-align: right; font-weight: 600;">After, top 10</th>
+<th scope="col" style="padding: 12px 16px; text-align: right; font-weight: 600;">After, top 50</th>
+<th scope="col" style="padding: 12px 16px; text-align: right; font-weight: 600;">After, top 100</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid var(--rule);">
+<th scope="row" style="padding: 12px 16px; text-align: left; font-weight: 500;">Chamber</th>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+</tr>
+<tr style="border-top: 1px solid var(--rule);">
+<th scope="row" style="padding: 12px 16px; text-align: left; font-weight: 500;">Party</th>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+</tr>
+<tr style="border-top: 1px solid var(--rule);">
+<th scope="row" style="padding: 12px 16px; text-align: left; font-weight: 500;">State</th>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+</tr>
+<tr style="border-top: 1px solid var(--rule);">
+<th scope="row" style="padding: 12px 16px; text-align: left; font-weight: 500;">Chamber and state</th>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+<td style="padding: 12px 16px; text-align: right; font-family: var(--font-mono); color: var(--ink-muted);">[nDCG@10 · fill]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="margin: 0px; max-width: 68ch; font-size: 12px; line-height: 16px; color: var(--ink-muted);">Rows run from the least selective filter to the most. Fill is the share of the 10 result slots still filled after the filter is applied.</p>
+</section>
+<section aria-labelledby="judgments" style="display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px;">
+<h2 id="judgments" style="margin: 0px; font-size: 18px; line-height: 24px; font-weight: 600;">Judgments</h2>
+<button type="button" class="cb-btn cb-btn-quiet">Export judgments</button>
+</div>
+<div style="overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--paper-raised);">
+<table style="width: 100%; min-width: 880px; border-collapse: collapse; font-size: 13px; line-height: 18px;">
+<caption style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;">Hand labels for the passages each method returned</caption>
+<thead>
+<tr style="background: var(--paper-sunk);">
+<th scope="col" style="padding: 12px 16px; text-align: left; font-weight: 600;">Question</th>
+<th scope="col" style="padding: 12px 16px; text-align: left; font-weight: 600;">Member</th>
+<th scope="col" style="padding: 12px 16px; text-align: left; font-weight: 600;">Passage</th>
+<th scope="col" style="padding: 12px 16px; text-align: left; font-weight: 600;">Returned by</th>
+<th scope="col" style="padding: 12px 16px; text-align: left; font-weight: 600;">Label</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid var(--rule); vertical-align: top;">
+<td style="padding: 12px 16px; width: 20%;">members who were teachers before entering politics</td>
+<td style="padding: 12px 16px; white-space: nowrap;"><div style="display: flex; align-items: center; gap: 8px;">
+<span style="font-family: var(--font-serif); font-size: 15px; font-weight: 600;">Eleanor Whitcombe</span>
+<span class="cb-party cb-party-dem" title="Democrat"><span class="cb-party-letter" aria-label="Democrat">D</span></span>
+</div>
+</td>
+<td style="padding: 12px 16px; font-family: var(--font-serif); font-size: 15px; line-height: 22px;">Before entering politics she taught high school civics for eleven years and coached the debate team, then served two terms on the county school board.</td>
+<td style="padding: 12px 16px;"><div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+<span class="cb-method cb-method-keyword"><span>Keyword</span></span>
+<span class="cb-method cb-method-semantic"><span>Meaning</span></span>
+<span class="cb-method cb-method-hybrid"><span>Hybrid</span></span>
+</div>
+</td>
+<td style="padding: 12px 16px;">
+<span class="cb-rel cb-rel-2"><span class="cb-rel-pips" aria-hidden="true"><span class="cb-rel-pip cb-rel-pip-on"></span><span class="cb-rel-pip cb-rel-pip-on"></span></span><span>Relevant</span></span>
+</td>
+</tr>
+<tr style="border-top: 1px solid var(--rule); vertical-align: top;">
+<td style="padding: 12px 16px;">members who were teachers before entering politics</td>
+<td style="padding: 12px 16px; white-space: nowrap;"><div style="display: flex; align-items: center; gap: 8px;">
+<span style="font-family: var(--font-serif); font-size: 15px; font-weight: 600;">Priya Venkataraman</span>
+<span class="cb-party cb-party-dem" title="Democrat"><span class="cb-party-letter" aria-label="Democrat">D</span></span>
+</div>
+</td>
+<td style="padding: 12px 16px; font-family: var(--font-serif); font-size: 15px; line-height: 22px;">She worked as a substitute teacher while completing her law degree, and later taught constitutional law as an adjunct professor.</td>
+<td style="padding: 12px 16px;"><div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+<span class="cb-method cb-method-keyword"><span>Keyword</span></span>
+<span class="cb-method cb-method-semantic"><span>Meaning</span></span>
+<span class="cb-method cb-method-hybrid"><span>Hybrid</span></span>
+</div>
+</td>
+<td style="padding: 12px 16px;">
+<span class="cb-rel cb-rel-1"><span class="cb-rel-pips" aria-hidden="true"><span class="cb-rel-pip cb-rel-pip-on"></span><span class="cb-rel-pip"></span></span><span>Partly relevant</span></span>
+</td>
+</tr>
+<tr style="border-top: 1px solid var(--rule); vertical-align: top;">
+<td style="padding: 12px 16px;">members who were teachers before entering politics</td>
+<td style="padding: 12px 16px; white-space: nowrap;"><div style="display: flex; align-items: center; gap: 8px;">
+<span style="font-family: var(--font-serif); font-size: 15px; font-weight: 600;">Marcus Feld</span>
+<span class="cb-party cb-party-dem" title="Democrat"><span class="cb-party-letter" aria-label="Democrat">D</span></span>
+</div>
+</td>
+<td style="padding: 12px 16px; font-family: var(--font-serif); font-size: 15px; line-height: 22px;">Feld has said that members of his family discouraged him from entering politics, and that he first ran for office against their advice.</td>
+<td style="padding: 12px 16px;"><div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+<span class="cb-method cb-method-keyword"><span>Keyword</span></span>
+<span class="cb-method cb-method-hybrid"><span>Hybrid</span></span>
+</div>
+</td>
+<td style="padding: 12px 16px; white-space: nowrap;">
+<span class="cb-rel cb-rel-0"><span class="cb-rel-pips" aria-hidden="true"><span class="cb-rel-pip"></span><span class="cb-rel-pip"></span></span><span>Not relevant</span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<footer style="border-top: 1px solid var(--rule);">
+<div style="max-width: 1200px; margin: 0px auto; padding: 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; font-size: 12px; line-height: 16px; color: var(--ink-muted);">
+<span style="max-width: 68ch;">Passages come from Wikipedia, which is not a verified source. Read the full article before relying on one. A student research project, not an official product of Congress.</span><span style="font-family: var(--font-mono);">555 articles · 18,434 passages · snapshot [SNAPSHOT DATE]</span></div>
+</footer>
+</div>
+</body>
+</html>

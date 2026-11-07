@@ -1,0 +1,7 @@
+[server]
+# Streamlit's file watcher scans imported libraries and trips over transformers' lazy
+# torchvision import (harmless but noisy errors). Restart the app after editing app.py.
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false

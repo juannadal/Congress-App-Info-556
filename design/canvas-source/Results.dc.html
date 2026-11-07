@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search results</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/biosearch/components/bundle.css">
+<script src="ds/biosearch/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:inherit}a:hover{text-decoration-thickness:2px}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1284px; box-sizing: border-box; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 15px; line-height: 22px;">
+<header style="border-bottom: 1px solid var(--rule);">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 32px; min-height: 64px;">
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-serif); font-size: 20px; line-height: 26px; font-weight: 600; text-decoration: none;">Congress Bio Search</a>
+<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; gap: 0 24px;">
+<a href="Main.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--ink); font-size: 13px; line-height: 18px; font-weight: 600; text-decoration: none;">Search</a>
+<a href="Compare.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Compare methods</a>
+<a href="Evaluation.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; border-bottom: 2px solid var(--paper); font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: none;">Evaluation</a>
+</nav>
+</div>
+</header>
+<main style="flex-grow: 1;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+<h1 style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; margin: 0;">Search results</h1>
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 16px;">
+<x-import component-from-global-scope="BioSearch.SearchBar" default-value="members who were teachers before entering politics"></x-import>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;">
+<span id="method-label" style="font-size: 13px; line-height: 18px; font-weight: 500;">Search by</span>
+<div role="group" aria-labelledby="method-label" style="display: inline-flex; border: 1px solid var(--rule-strong); border-radius: var(--radius-md); overflow: hidden;">
+<button type="button" aria-pressed="false" style="height: 36px; padding: 0 16px; border: 0; border-right: 1px solid var(--rule-strong); background: var(--paper-raised); color: var(--ink); font: 500 13px/18px var(--font-sans); cursor: pointer;">Keyword</button>
+<button type="button" aria-pressed="false" style="height: 36px; padding: 0 16px; border: 0; border-right: 1px solid var(--rule-strong); background: var(--paper-raised); color: var(--ink); font: 500 13px/18px var(--font-sans); cursor: pointer;">Meaning</button>
+<button type="button" aria-pressed="true" style="height: 36px; padding: 0 16px; border: 0; background: var(--ink); color: var(--on-ink); font: 500 13px/18px var(--font-sans); cursor: pointer;">Hybrid</button>
+</div>
+<a href="Compare.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; line-height: 18px; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;">Compare all three</a>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 32px;">
+<aside aria-label="Filters" style="flex: 1 1 240px; max-width: 320px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px; padding: 16px; border-radius: var(--radius-md); background: var(--paper-sunk);">
+<h2 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600;">Narrow the results</h2>
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<div style="font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; color: var(--ink-muted);">CHAMBER</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+<x-import component-from-global-scope="BioSearch.FilterChip" selected="{{yes}}">House</x-import>
+<x-import component-from-global-scope="BioSearch.FilterChip">Senate</x-import>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<div style="font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; color: var(--ink-muted);">PARTY</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+<x-import component-from-global-scope="BioSearch.FilterChip">Democrat</x-import>
+<x-import component-from-global-scope="BioSearch.FilterChip">Independent</x-import>
+<x-import component-from-global-scope="BioSearch.FilterChip">Republican</x-import>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<div style="font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; color: var(--ink-muted);">STATE</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+<x-import component-from-global-scope="BioSearch.FilterChip" selected="{{yes}}">California</x-import>
+<x-import component-from-global-scope="BioSearch.Button">Choose a state</x-import>
+</div>
+</div>
+<div style="display: flex;">
+<x-import component-from-global-scope="BioSearch.Button">Clear filters</x-import>
+</div>
+</aside>
+<section aria-labelledby="results-heading" style="flex: 999 1 560px; min-width: 0; max-width: 720px; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px;">
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<h2 id="results-heading" style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600;">Passages that match</h2>
+<div style="font-size: 12px; line-height: 16px; color: var(--ink-muted);">Top 10, searched within House and California</div>
+</div>
+<x-import component-from-global-scope="BioSearch.MethodTag" method="hybrid"></x-import>
+</div>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="1" name="Daniel Okonkwo-Reyes" chamber="Representative" party="R" state="California" href="https://en.wikipedia.org/" score="RRF 0.0323">A former middle school science <mark>teacher</mark>, he spent nine years in the classroom before winning a seat on the city council, his first elected office.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="2" name="Eleanor Whitcombe" chamber="Representative" party="D" state="California" href="https://en.wikipedia.org/" score="RRF 0.0320">Before <mark>entering</mark> <mark>politics</mark> she taught high school civics for eleven years and coached the debate team, then served two terms on the county school board.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="3" name="Priya Venkataraman" chamber="Representative" party="D" state="California" href="https://en.wikipedia.org/" score="RRF 0.0317">She worked as a substitute <mark>teacher</mark> while completing her law degree, and later taught constitutional law as an adjunct professor.</x-import>
+<x-import component-from-global-scope="BioSearch.ResultCard" rank="4" name="Harold Lindqvist" chamber="Representative" party="R" state="California" href="https://en.wikipedia.org/" score="RRF 0.0161">Lindqvist began his career as a vocational instructor at a community college, where he ran the welding program for six years.</x-import>
+<div style="display: flex;">
+<x-import component-from-global-scope="BioSearch.Button">Show the next six</x-import>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer style="border-top: 1px solid var(--rule);">
+<div style="max-width: 1200px; margin: 0 auto; padding: 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; font-size: 12px; line-height: 16px; color: var(--ink-muted);">
+<span style="max-width: 68ch;">Passages come from Wikipedia, which is not a verified source. Read the full article before relying on one. A student research project, not an official product of Congress.</span>
+<span style="font-family: var(--font-mono);">555 articles · 18,434 passages · snapshot [SNAPSHOT DATE]</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1360,"height":1284}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'light', yes: true };
+}
+}
+</script>
+</body>
+</html>

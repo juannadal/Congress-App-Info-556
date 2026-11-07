@@ -1,0 +1,69 @@
+/* Congress Bio Search: component styles. Every colour, space and radius is a token from tokens.css. */
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 15px/22px var(--font-sans); -webkit-font-smoothing: antialiased; }
+.cb-stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); }
+.cb-stage-col { flex-direction: column; align-items: stretch; }
+.cb-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Button */
+.cb-btn { box-sizing: border-box; height: 36px; padding: 0 var(--space-4); border: 1px solid var(--rule-strong); border-radius: var(--radius-md); background: var(--paper-raised); color: var(--ink); font: 500 13px/18px var(--font-sans); cursor: pointer; white-space: nowrap; }
+.cb-btn:hover { background: var(--paper-sunk); }
+.cb-btn-primary, .cb-btn-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.cb-btn:disabled { cursor: not-allowed; border-style: dashed; background: transparent; color: var(--ink-muted); }
+.cb-btn:focus-visible, .cb-chip:focus-visible, .cb-link:focus-visible { outline: 2px solid transparent; outline-offset: 2px; box-shadow: var(--focus-ring); }
+
+/* SearchBar */
+.cb-search { display: flex; align-items: center; gap: var(--space-2); width: 100%; margin: 0; }
+.cb-search-field { box-sizing: border-box; flex: 1; min-width: 0; display: flex; align-items: center; height: 44px; padding: 0 var(--space-3); border: 1px solid var(--rule-strong); border-radius: var(--radius-md); background: var(--paper-raised); }
+.cb-search-field:focus-within { box-shadow: var(--focus-ring); }
+.cb-search-input { flex: 1; min-width: 0; border: 0; padding: 0; background: transparent; color: var(--ink); font: 400 16px/24px var(--font-sans); outline: none; }
+.cb-search-input::placeholder { color: var(--ink-muted); opacity: 1; }
+.cb-search .cb-btn { height: 44px; }
+
+/* FilterChip */
+.cb-chip { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--space-2); height: 32px; padding: 0 var(--space-3); border: 1px solid var(--rule-strong); border-radius: var(--radius-full); background: transparent; color: var(--ink); font: 500 13px/18px var(--font-sans); cursor: pointer; white-space: nowrap; }
+.cb-chip:hover { background: var(--paper-sunk); }
+.cb-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.cb-chip-count { font: 400 12px/16px var(--font-mono); color: var(--ink-muted); }
+.cb-chip[aria-pressed="true"] .cb-chip-count { color: var(--on-ink); }
+
+/* PartyTag */
+.cb-party { display: inline-flex; align-items: center; gap: var(--space-1); font: 500 13px/18px var(--font-sans); white-space: nowrap; }
+.cb-party-letter { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: var(--radius-sm); font: 600 11px/1 var(--font-sans); }
+.cb-party-dem { color: var(--party-dem); }
+.cb-party-dem .cb-party-letter { background: var(--party-dem-soft); }
+.cb-party-rep { color: var(--party-rep); }
+.cb-party-rep .cb-party-letter { background: var(--party-rep-soft); }
+.cb-party-ind { color: var(--party-ind); }
+.cb-party-ind .cb-party-letter { background: var(--party-ind-soft); }
+
+/* MethodTag */
+.cb-method { display: inline-flex; align-items: center; gap: var(--space-2); height: 24px; padding: 0 var(--space-2); border-radius: var(--radius-sm); font: 600 11px/16px var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+.cb-method-detail { font: 400 12px/16px var(--font-mono); letter-spacing: 0; text-transform: none; }
+.cb-method-keyword { background: var(--method-keyword-soft); color: var(--method-keyword); }
+.cb-method-semantic { background: var(--method-semantic-soft); color: var(--method-semantic); }
+.cb-method-hybrid { background: var(--method-hybrid-soft); color: var(--method-hybrid); }
+
+/* Relevance */
+.cb-rel { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--ink); font: 500 13px/18px var(--font-sans); white-space: nowrap; }
+.cb-rel-pips { display: inline-flex; gap: var(--space-1); }
+.cb-rel-pip { box-sizing: border-box; width: 10px; height: 10px; border: 1.5px solid var(--ink); border-radius: var(--radius-full); }
+.cb-rel-pip-on { background: var(--ink); }
+
+/* ResultCard */
+.cb-result { box-sizing: border-box; display: grid; grid-template-columns: auto 56px minmax(0, 1fr); column-gap: var(--space-4); padding: var(--space-4); border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--paper-raised); }
+.cb-result-rank { min-width: 2ch; text-align: right; color: var(--ink-muted); font: 500 13px/26px var(--font-mono); font-variant-numeric: tabular-nums; }
+.cb-result-photo { box-sizing: border-box; display: grid; place-items: center; width: 56px; height: 72px; border-radius: var(--radius-sm); background: var(--paper-sunk); color: var(--ink-muted); font: 600 18px/1 var(--font-serif); object-fit: cover; }
+.cb-result-name { margin: 0; color: var(--ink); font: 600 20px/26px var(--font-serif); }
+.cb-result-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); margin-top: var(--space-1); color: var(--ink-muted); font: 400 13px/18px var(--font-sans); }
+.cb-passage { max-width: 68ch; margin: var(--space-3) 0 0; color: var(--ink); font: 400 16px/26px var(--font-serif); }
+.cb-passage mark, mark.cb-mark { padding: 0 var(--space-1); border-radius: var(--radius-sm); background: var(--mark); color: var(--on-mark); font-weight: 600; }
+.cb-result-foot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); margin-top: var(--space-3); }
+.cb-result-score { color: var(--ink-muted); font: 400 13px/18px var(--font-mono); font-variant-numeric: tabular-nums; }
+.cb-link { border-radius: var(--radius-sm); color: var(--ink); font: 500 13px/18px var(--font-sans); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.cb-link:hover { text-decoration-thickness: 2px; }
+
+/* MetricTile */
+.cb-metric { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); min-width: 168px; padding: var(--space-4); border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--paper-raised); }
+.cb-metric-label { color: var(--ink-muted); font: 600 13px/18px var(--font-sans); }
+.cb-metric-value { color: var(--ink); font: 500 28px/32px var(--font-mono); font-variant-numeric: tabular-nums; }
+.cb-metric-note { color: var(--ink-muted); font: 400 12px/16px var(--font-sans); }

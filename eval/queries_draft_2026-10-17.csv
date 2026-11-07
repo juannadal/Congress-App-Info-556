@@ -1,0 +1,51 @@
+query_id,group,text,chamber,party,state,notes
+k01,keyword,chair of the Senate Armed Services Committee,,,,draft
+k02,keyword,Speaker of the House,,,,draft
+k03,keyword,Senate Majority Leader,,,,draft
+k04,keyword,House Majority Whip,,,,draft
+k05,keyword,president pro tempore of the Senate,,,,draft
+k06,keyword,impeachment manager,,,,draft
+k07,keyword,Congressional Progressive Caucus,,,,draft
+k08,keyword,Freedom Caucus founding member,,,,draft
+k09,keyword,chair of the House Oversight Committee,,,,draft
+k10,keyword,chair of the Congressional Black Caucus,,,,draft
+k11,keyword,Rhodes Scholar,,,,draft
+k12,keyword,Navy SEAL,,,,draft
+k13,keyword,NASA astronaut,,,,draft
+k14,keyword,awarded the Bronze Star,,,,draft
+k15,keyword,state attorney general,,,,draft
+k16,keyword,House Ways and Means Committee,,,,draft
+k17,keyword,Select Committee on the January 6 Attack,,,,draft
+k18,keyword,filibuster reform,,,,draft
+k19,keyword,voted to override the veto,,,,draft
+k20,keyword,redistricting lawsuit,,,,draft
+c01,conceptual,members who were teachers before entering politics,,,,draft
+c02,conceptual,grew up poor,,,,draft
+c03,conceptual,members born in another country,,,,draft
+c04,conceptual,had a medical career before Congress,,,,draft
+c05,conceptual,former professional athletes,,,,draft
+c06,conceptual,grew up working on a family farm or ranch,,,,draft
+c07,conceptual,survived a cancer diagnosis,,,,draft
+c08,conceptual,flew combat aircraft in the military,,,,draft
+c09,conceptual,former television news reporters,,,,draft
+c10,conceptual,politicians who switched political parties,,,,draft
+c11,conceptual,first in their family to go to college,,,,draft
+c12,conceptual,founded a business before running for office,,,,draft
+c13,conceptual,worked in law enforcement before Congress,,,,draft
+c14,conceptual,parents immigrated to the United States,,,,draft
+c15,conceptual,pastors and ministers in Congress,,,,draft
+c16,conceptual,trained as scientists or engineers,,,,draft
+c17,conceptual,objected to certifying the 2020 presidential election results,,,,draft
+c18,conceptual,wants to get rid of the Senate's 60-vote rule,,,,draft
+c19,conceptual,fought against partisan district maps,,,,draft
+c20,conceptual,accused of misusing campaign money,,,,draft
+f01,filtered,former prosecutor,,,CA,draft
+f02,filtered,served in the military,Senate,,,draft
+f03,filtered,farmer,House,Republican,,draft
+f04,filtered,former teacher,,,TX,draft
+f05,filtered,immigrated to the United States,,Democratic,,draft
+f06,filtered,former governor,Senate,,,draft
+f07,filtered,physician,,Republican,,draft
+f08,filtered,speaker of the state house,,,FL,draft
+f09,filtered,former mayor,,,NY,draft
+f10,filtered,Marine Corps veteran,,,AZ,draft
