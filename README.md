@@ -111,9 +111,12 @@ one of the three options below. Each one needs an internet connection the first 
   can fail. Check with `python3 --version`. If needed, install 3.12 from [python.org](https://www.python.org/downloads/).
 - **Git**, to download the project. Alternatively, use **Code > Download ZIP** on GitHub and unzip it.
 - About **3 GB of free disk space**, mostly for PyTorch.
-- **API keys are optional.** Keyword, meaning, and hybrid search work without any key, and so does the re-ranker for
-  the 50 test questions, because its answers are saved in `eval/rerank_cache.jsonl`. See
-  [Optional: AI features](#optional-ai-features).
+- **API keys are optional.** Keyword, meaning, and hybrid search work without any key.
+
+> **Note:** The two AI features, the **Claude re-ranker** and the **Grok AI overview**, do not work without your own
+> API keys. The only exception is the re-ranker on the 50 test questions, whose answers are saved in
+> `eval/rerank_cache.jsonl`. The author's keys are not included in this project. To turn the AI features on, see
+> [Optional: AI features](#optional-ai-features).
 
 Everything else is included or downloads by itself. The repo includes the 18,434 passages, member data, portraits,
 test questions, and relevance labels. The first run downloads the MiniLM model (about 90 MB) and the NLTK stop-word
@@ -179,18 +182,46 @@ calls.
 
 ### Optional: AI features
 
-- The **re-ranker for new questions** needs an Anthropic API key.
-- The **AI overview** needs an xAI (Grok) API key.
+The app works without these keys. Without them, the re-ranker column only shows results for the 50 saved test
+questions, and the AI overview is unavailable.
 
-To use them, create the file `~/.info556/.env` (on Windows, `%USERPROFILE%\.info556\.env`) with one line per key:
+| Feature | Uses | Key name | Where to get a key |
+|---|---|---|---|
+| Re-ranker (new questions) | Claude (Anthropic) | `ANTHROPIC_API_KEY` | [console.anthropic.com](https://console.anthropic.com/) > **API Keys** |
+| AI overview | Grok (xAI) | `XAI_API_KEY` | [console.x.ai](https://console.x.ai/) > **API Keys** |
+
+Both services charge per use and need a payment method or prepaid credits on your account. Each search costs a few
+cents at most. Setting a low monthly spending limit in each console is a good idea. You can add one key, both, or
+neither.
+
+**1. Get a key.** Sign in to the console linked above, create a new API key, and copy it. It is shown only once.
+
+**2. Save it where the app can find it.** Create a folder named `.info556` in your home folder, and in it a text file
+named `.env`:
+
+- Mac/Linux: `~/.info556/.env`
+- Windows: `%USERPROFILE%\.info556\.env` (for example `C:\Users\yourname\.info556\.env`)
+
+Put one key per line, with no spaces or quotes. Leave out any line you don't need:
 
 ```
 ANTHROPIC_API_KEY=your-key-here
 XAI_API_KEY=your-key-here
 ```
 
-You can also set them as environment variables. With Docker, add `-e ANTHROPIC_API_KEY=... -e XAI_API_KEY=...` to
-`docker run`. Without keys, the app still works; those two features are just unavailable for new questions.
+On Windows, Notepad may save the file as `.env.txt`. In the save dialog, choose **Save as type: All files** to avoid
+that.
+
+**3. Restart the app.** Stop it (`Ctrl+C`, or close the window on Windows) and start it again.
+
+Other ways to provide the keys:
+
+- **Environment variables:** run `export ANTHROPIC_API_KEY=...` (Mac/Linux) or `set ANTHROPIC_API_KEY=...` (Windows)
+  in the same terminal, before `streamlit run app.py`.
+- **Docker:** add `-e ANTHROPIC_API_KEY=... -e XAI_API_KEY=...` to the `docker run` command.
+
+**Keep your keys private.** Never commit the `.env` file or paste a key into the project folder. The `.env` file lives
+outside the project, and `.gitignore` also blocks `.env` files, so they don't end up on GitHub by accident.
 
 ### Troubleshooting
 
