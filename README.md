@@ -100,14 +100,116 @@ in `eval/results/` and on the app's Results page.
 - `Dockerfile`, `cloudflare/`, `DEPLOY.md`: public website on Cloudflare (Worker + Container)
 - `data/`: processed corpus, member data, and portraits (raw API downloads are not included)
 
-## Setup
+## Run it on your own computer
 
-    python -m venv ~/.info556/venv && source ~/.info556/venv/bin/activate
-    pip install torch -r requirements.txt
-    streamlit run app.py                   # the first launch builds the meaning index (~20 s on Apple silicon)
+You don't need to install anything to try the app: use the public site linked at the top. To run it locally, pick
+one of the three options below. Each one needs an internet connection the first time.
 
-The re-ranker reads an API key from `ANTHROPIC_API_KEY` or `~/.info556/.env`; cached results in
-`eval/rerank_cache.jsonl` let the evaluation run without a key.
+### What you need
+
+- **Python 3.10, 3.11, 3.12, or 3.13.** Newer versions (3.14 and up) may not have PyTorch packages yet, so the install
+  can fail. Check with `python3 --version`. If needed, install 3.12 from [python.org](https://www.python.org/downloads/).
+- **Git**, to download the project. Alternatively, use **Code > Download ZIP** on GitHub and unzip it.
+- About **3 GB of free disk space**, mostly for PyTorch.
+- **API keys are optional.** Keyword, meaning, and hybrid search work without any key, and so does the re-ranker for
+  the 50 test questions, because its answers are saved in `eval/rerank_cache.jsonl`. See
+  [Optional: AI features](#optional-ai-features).
+
+Everything else is included or downloads by itself. The repo includes the 18,434 passages, member data, portraits,
+test questions, and relevance labels. The first run downloads the MiniLM model (about 90 MB) and the NLTK stop-word
+list.
+
+### Option A: Mac or Linux
+
+```bash
+git clone https://github.com/juannadal/Congress-App-Info-556.git
+cd Congress-App-Info-556
+
+# Create a virtual environment (use any Python 3.10–3.13, e.g. python3.12)
+python3.12 -m venv ~/.info556/venv
+source ~/.info556/venv/bin/activate
+
+# Install CPU-only PyTorch first (the default package is several GB larger), then the rest
+pip install --upgrade pip
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements.txt
+
+# Start the app
+streamlit run app.py
+```
+
+Your browser opens http://localhost:8501. The first launch builds the meaning-search index. This takes about 20
+seconds on Apple silicon and can take a few minutes on older computers. Later launches are fast.
+
+To run it again later:
+
+```bash
+cd Congress-App-Info-556
+source ~/.info556/venv/bin/activate
+streamlit run app.py
+```
+
+Press `Ctrl+C` in the terminal to stop the app.
+
+### Option B: Windows
+
+1. Install Python 3.11, 3.12, or 3.13 from [python.org](https://www.python.org/downloads/). During the install, check
+   **"Add python.exe to PATH"**.
+2. Download the project: `git clone https://github.com/juannadal/Congress-App-Info-556.git`, or use the ZIP from
+   GitHub.
+3. Double-click `windows\setup_windows.bat` once. It creates the environment, installs the packages, and builds the
+   search index (allow 5–15 minutes).
+4. Double-click `windows\start_app.bat` to start the app. It opens the "Label passages" page; click **app** at the
+   top of the sidebar to get to the search page. Close the window to stop the app.
+
+### Option C: Docker (any operating system)
+
+If you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed, this avoids installing Python
+yourself:
+
+```bash
+git clone https://github.com/juannadal/Congress-App-Info-556.git
+cd Congress-App-Info-556
+docker build -t congress-search .        # 10–20 minutes the first time
+docker run -p 8080:8080 congress-search
+```
+
+Then open http://localhost:8080. This runs the public-site version, which hides the labeling page and limits paid AI
+calls.
+
+### Optional: AI features
+
+- The **re-ranker for new questions** needs an Anthropic API key.
+- The **AI overview** needs an xAI (Grok) API key.
+
+To use them, create the file `~/.info556/.env` (on Windows, `%USERPROFILE%\.info556\.env`) with one line per key:
+
+```
+ANTHROPIC_API_KEY=your-key-here
+XAI_API_KEY=your-key-here
+```
+
+You can also set them as environment variables. With Docker, add `-e ANTHROPIC_API_KEY=... -e XAI_API_KEY=...` to
+`docker run`. Without keys, the app still works; those two features are just unavailable for new questions.
+
+### Troubleshooting
+
+- **`pip install torch` fails with "No matching distribution":** your Python is too new or too old. Make the
+  virtual environment with Python 3.10–3.13.
+- **SSL / certificate error when the app starts (Mac):** Python from python.org needs its certificates installed once.
+  Open *Applications > Python 3.x* and double-click **Install Certificates.command**, then restart the app.
+- **Port 8501 is already in use:** run `streamlit run app.py --server.port 8502` and open http://localhost:8502.
+- **`git status` shows `eval/query_log.csv` changed:** that's expected. The app logs local searches there.
+
+### Reproducing the evaluation
+
+With the environment activated, from the project folder:
+
+```bash
+python -m eval.score    # scores all four methods on the 50 test questions from the saved rankings and labels
+```
+
+Results are written to `eval/results/` and shown on the app's Results page.
 
 ## Use of generative AI
 
