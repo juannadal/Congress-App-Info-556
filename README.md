@@ -93,12 +93,79 @@ in `eval/results/` and on the app's Results page.
 
 ## Layout
 
-- `scripts/`: data collection from Congress.gov and Wikipedia, and passage chunking
-- `retrieval/`: BM25, dense, hybrid, and re-ranker search, called by the website
-- `eval/`: test questions, pooling, relevance labels, and scoring (`python -m eval.pool`, `python -m eval.score`)
-- `app.py`, `pages/`: Streamlit app with search, labeling, and results pages (`streamlit run app.py`)
-- `Dockerfile`, `cloudflare/`, `DEPLOY.md`: public website on Cloudflare (Worker + Container)
-- `data/`: processed corpus, member data, and portraits (raw API downloads are not included)
+```
+app.py                  Streamlit search page: four methods side by side (streamlit run app.py)
+pages/
+  1_Label_passages.py   Labeling page: judge pooled passages 0 / 1 / 2 (hidden on the public site)
+  2_Results.py          Results page: scores, significance tests, and per-question results
+retrieval/              The search methods, used by the app and the evaluation
+  corpus.py             Loads the passages and applies chamber / party / state filters
+  bm25.py               BM25 keyword search
+  dense.py              Dense (meaning) search: MiniLM embeddings in ChromaDB
+  hybrid.py             Hybrid search: Reciprocal Rank Fusion of BM25 and dense
+  rerank.py             LLM re-ranker over the hybrid top 20, with a response cache
+  overview.py           Grok AI overview of the top results (display only)
+  deploy.py             Settings, API keys, and paid-call limits for the public site
+  querylog.py           Logs app searches to eval/query_log.csv
+eval/                   Test questions, relevance labels, scoring, and results (see eval/README.md)
+scripts/                Data collection and chunking, run once in order (see data/README.md)
+data/                   The corpus, member data, and portraits (see data/README.md)
+design/                 Interface design: screen mockups, design tokens, fonts (see design/README.md)
+congress-api/           A small Congress.gov API test script and the API key template
+windows/                One-click setup and start scripts for Windows
+Dockerfile, cloudflare/, DEPLOY.md   The public website (Cloudflare Worker + Container)
+requirements.txt        Python packages
+```
+
+More detail: [data/README.md](data/README.md) describes every data file and column, and
+[eval/README.md](eval/README.md) describes the evaluation files and workflow. Every Python file starts with a
+docstring that explains what it does and how to run it.
+
+### Code reference
+
+All four search methods have the same interface, so the app and the evaluation can treat them the same way:
+`search(query, k=10, where=None)` returns a pandas DataFrame of the top `k` passages, with `rank`, `score`, and the
+passage columns (`passage_id`, `bioguide_id`, `name`, `chamber`, `party`, `state_code`, `section`, `text`,
+`wikipedia_url`). `where` is an optional filter such as `{"chamber": "Senate", "state_code": ["CA", "TX"]}`.
+
+| Module | Main parts |
+|---|---|
+| `retrieval/corpus.py` | `load_passages(congress=119)` reads `data/passages_119.jsonl`; `filter_mask(passages, where)` gives the passages that match a filter |
+| `retrieval/bm25.py` | `tokenize(text)`; `BM25Index(passages).search(...)`, and `.scores(query, where)` for the raw scores |
+| `retrieval/dense.py` | `DenseIndex(passages)`: `.build()` embeds the passages, `.is_current()` checks whether the saved index matches the data, `.search(...)` |
+| `retrieval/hybrid.py` | `rrf(rankings)` fuses ranked lists; `HybridIndex(passages).search(...)` also returns each passage's `bm25_rank` and `dense_rank` |
+| `retrieval/rerank.py` | `LLMReranker(hybrid).search(...)` re-orders the hybrid top 20 and returns `hybrid_rank` too |
+| `retrieval/overview.py` | `status()`, `select_sources(hits)`, `stream_overview(query, where, sources)`, `link_citations(text, sources)` |
+| `retrieval/deploy.py` | `get_secret(name)` reads a setting from the environment or `~/.info556/.env`; `allow_paid_call()` enforces the public-site limits |
+| `eval/runs.py` | `load_queries()`, `make_runs(queries)` runs every method on every question, and label-sheet input and output |
+| `eval/score.py` | Metric functions (nDCG, Recall, MRR) and significance tests; `python -m eval.score` |
+
+Example:
+
+```python
+from retrieval.corpus import load_passages
+from retrieval.hybrid import HybridIndex
+
+index = HybridIndex(load_passages())
+index.search("former prosecutor", k=5, where={"state_code": "CA"})
+```
+
+### Rebuilding the data (optional)
+
+The processed data is already in `data/`, so this is not needed to run the app or reproduce the results. To collect
+it again, get a free Congress.gov API key at [api.data.gov/signup](https://api.data.gov/signup/), copy
+`congress-api/.env.example` to `.env` in the project root, add the key, and run:
+
+```bash
+python scripts/fetch_members.py          # members from Congress.gov
+python scripts/fetch_wikipedia.py        # their Wikipedia articles, matched by ID through Wikidata
+python scripts/chunk_wikipedia.py        # split the articles into passages
+python scripts/fetch_member_images.py    # portraits
+python scripts/fetch_sponsored_bills.py  # sponsored legislation (not used by search)
+```
+
+This downloads the *current* data, which will differ from the committed files and no longer match the relevance
+labels. See [data/README.md](data/README.md#how-the-files-were-made).
 
 ## Run it on your own computer
 

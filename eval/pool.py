@@ -1,5 +1,4 @@
-"""Build the labeling list. A pool mixes each method's top passages and hides which method found them.
-Pool the top results of every method into a judging sheet (eval/judgments.csv).
+"""Pool the top results of every method into a blind judging sheet (eval/judgments.csv).
 
 For each query in eval/queries.csv, the top `depth` passages from BM25, dense, and hybrid
 are merged and deduplicated. Within each query the passages are shuffled with a fixed seed

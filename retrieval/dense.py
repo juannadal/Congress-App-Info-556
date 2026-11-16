@@ -1,6 +1,7 @@
-"""Find passages whose meaning is close to the question. An embedding turns text into numbers so similar meanings land near each other.
+"""Dense (meaning) search: all-MiniLM-L6-v2 embeddings stored and searched in ChromaDB.
 
-Dense (semantic) search: all-MiniLM-L6-v2 embeddings stored and searched in ChromaDB.
+An embedding turns text into a list of numbers so that passages with similar meanings land close together, even when
+they share no words with the question.
 
 Passages are embedded once with sentence-transformers (normalized, so cosine similarity is
 a dot product) and saved in a ChromaDB folder outside the project. The default is
@@ -37,7 +38,6 @@ def fingerprint(passages, column, model_name):
     return h.hexdigest()[:16]
 
 
-# Turn a simple filter into the form the index expects.
 def chroma_where(where):
     """{"chamber": "Senate", "state_code": ["CA", "TX"]} -> a ChromaDB where clause."""
     # One check per field. Several values mean any of these.
@@ -87,7 +87,6 @@ class DenseIndex:
         return (meta.get("fingerprint") == fingerprint(self.passages, self.column, self.model_name)
                 and self.collection.count() == len(self.passages))
 
-    # Turn every passage into numbers and store them in the index.
     def build(self, batch_size=64):
         """Embed every passage and (re)fill the collection."""
         # Throw away the old index and stamp the new one with the model and the passages.
@@ -107,7 +106,6 @@ class DenseIndex:
                                 embeddings=embeddings[start:start + ADD_BATCH],
                                 metadatas=chunk[meta_cols].to_dict("records"))
 
-    # Return the closest passages. The score is how similar the meanings are.
     def search(self, query, k=10, where=None):
         """Top-k passages as a DataFrame with rank and score (cosine similarity)."""
         vector = self.model.encode([query], normalize_embeddings=True)

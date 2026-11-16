@@ -1,6 +1,4 @@
-"""A language model reads the top passages and puts the best matches first.
-
-LLM re-ranking: a model re-orders the hybrid top 20 for a question (the fourth method).
+"""LLM re-ranking (the fourth method): a language model reads the hybrid top 20 and puts the best matches first.
 
 Hybrid search (BM25 + dense, RRF) returns its top `depth` passages (default 20). The model reads
 the question and the numbered passages and returns them ordered from most to least relevant;
@@ -73,7 +71,6 @@ def build_prompt(query, where, candidates):
     return "\n".join(lines)
 
 
-# Use the model's order, then add any passages it skipped, in the old order.
 def clean_order(ranking, n):
     """Keep valid, first-seen numbers; append any the model left out in hybrid order."""
     seen, order = set(), []

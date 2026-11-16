@@ -1,6 +1,4 @@
-"""Mix the word list and the meaning list into one ranking. Reciprocal rank fusion (RRF) scores a passage by its place in each list, not by the raw scores.
-
-Hybrid search: Reciprocal Rank Fusion (RRF) of the BM25 and dense rankings.
+"""Hybrid search: Reciprocal Rank Fusion (RRF) of the BM25 and dense rankings.
 
 Each method returns its top `depth` passages (default 100); a passage's fused score is
     sum over methods of 1 / (k_rrf + rank),   k_rrf = 60 (Cormack et al., 2009)
@@ -24,7 +22,6 @@ K_RRF = 60
 DEPTH = 100
 
 
-# Blend ranked lists by each passage's place, not by the raw scores.
 def rrf(rankings, k_rrf=K_RRF):
     """Fuse ranked lists of passage IDs. Returns a DataFrame indexed by passage_id with
     the fused score and each list's rank (NaN where the passage wasn't retrieved)."""

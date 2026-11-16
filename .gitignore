@@ -3,6 +3,8 @@
 .env*
 *.env
 congress-api/.env*
+!.env.example
+!congress-api/.env.example
 
 # Personal and course documents (proposal, update, instructor feedback, syllabus material)
 *.docx

@@ -1,6 +1,5 @@
-"""A person marks one passage at a time: 0 not relevant, 1 partly relevant, 2 relevant.
-Pooled passages are each method's top hits, mixed so the method stays hidden.
-Labeling page: judge pooled passages one at a time (0/1/2), saving each label right away.
+"""Labeling page: judge pooled passages one at a time (0 not relevant, 1 partly relevant, 2 relevant), saving each
+label right away.
 
 Opens from the sidebar of the main app (streamlit run app.py). Labels go straight into
 eval/judgments.csv, the file eval.score reads; the Excel copy (judgments.xlsx) is re-exported
@@ -15,7 +14,7 @@ marks the passage reviewed. Progress counts reviewed passages.
 """
 
 import csv
-import os
+import platform
 import re
 from datetime import datetime
 
@@ -29,7 +28,7 @@ from retrieval.deploy import APP_NAME, PUBLIC_DEMO
 FLAGS = JUDGMENTS.parent / "label_flags.csv"  # optional second-opinion list (eval/)
 # Every label pressed is also appended to a per-computer log, so labels can be rebuilt if Google Drive sync
 # lets one computer overwrite judgments.csv with an older copy (this happened on 2026-10-19/20).
-EVENT_LOG = JUDGMENTS.parent / f"label_events_{os.uname().nodename.split('.')[0]}.csv"
+EVENT_LOG = JUDGMENTS.parent / f"label_events_{platform.node().split('.')[0]}.csv"
 LABEL_NAMES = {"0": "0 · Not relevant", "1": "1 · Partly relevant", "2": "2 · Relevant"}
 BATCH_SIZE = 10  # questions per batch within each group
 
@@ -201,7 +200,7 @@ def save(label):
         w = csv.writer(f)
         if new:
             w.writerow(["timestamp", "computer", "query_id", "passage_id", "label", "notes"])
-        w.writerow([datetime.now().isoformat(timespec="seconds"), os.uname().nodename, row["query_id"],
+        w.writerow([datetime.now().isoformat(timespec="seconds"), platform.node(), row["query_id"],
                     row["passage_id"], label, note_now])
     # Move to the next unfinished passage, or one step forward if the rest are done.
     after = rows.index[(rows.index > pos) & ~labeled]

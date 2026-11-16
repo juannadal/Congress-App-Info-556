@@ -1,6 +1,6 @@
-"""Find passages that share the question's words. BM25 scores a passage higher when it contains the question's words, and when those words are rare in the whole set.
+"""BM25 (Okapi) keyword search with rank_bm25.
 
-BM25 (Okapi) keyword search with rank_bm25.
+A passage scores higher when it contains the question's words, and more so when those words are rare in the corpus.
 
 Tokenizing: accents removed, lowercased, split on anything that isn't a letter or digit,
 NLTK English stop words removed, and (by default) Porter stemming. The same tokenizer is
@@ -62,7 +62,6 @@ class BM25Index:
         # rank_bm25 computes that formula. This file only hands it the words and those two settings.
         self.bm25 = BM25Okapi(corpus, k1=k1, b=b)
 
-    # Score every passage for this question. Passages outside the filter get the worst score.
     def scores(self, query, where=None):
         """BM25 score for every passage; passages outside the filter get -inf."""
         terms = tokenize(query, self.stem)
@@ -75,7 +74,6 @@ class BM25Index:
             scores[ids] = self.bm25.get_batch_scores(terms, ids.tolist())
         return scores
 
-    # Return the best passages, best first. Leave out passages that share no words with the question.
     def search(self, query, k=10, where=None):
         """Top-k passages as a DataFrame with rank and score. Passages matching no query term are left out."""
         scores = self.scores(query, where)

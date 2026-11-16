@@ -92,7 +92,6 @@ def congress_attribution(bioguide_id):
     return None
 
 
-# Find a Commons photo for members who have no Congress.gov portrait.
 def commons_images(session, bioguide_ids):
     """Map bioguide ID -> Wikimedia Commons file name, via Wikidata P18."""
     if not bioguide_ids:

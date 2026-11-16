@@ -1,8 +1,6 @@
-"""Helpers for the test questions, the saved rankings, and the label sheet.
-A label is 0 (not relevant), 1 (partly relevant), or 2 (relevant).
-A pool is the set of passages put on that sheet.
+"""Helpers for the test questions, the saved rankings, the label sheet, and running every method over the questions.
 
-Test queries, the judging sheet, and running every method over the queries.
+A label is 0 (not relevant), 1 (partly relevant), or 2 (relevant). The pool is the set of passages on the sheet.
 
 Files (all in eval/):
   queries.csv    query_id, group (keyword | conceptual | filtered), text, chamber, party, state,
@@ -74,7 +72,6 @@ def load_queries(path=QUERIES):
     return q.reset_index(drop=True)
 
 
-# Turn a question's chamber, party, and state into the filter the search uses.
 def where_of(query):
     """A query row's chamber/party/state columns -> the `where` dict the search modules take."""
     return {field: query[col] for col, field in FILTER_COLUMNS.items() if query[col]}
@@ -85,7 +82,6 @@ def filter_label(query):
     return ", ".join(f"{col}={query[col]}" for col in FILTER_COLUMNS if query[col])
 
 
-# Search every test question with each method and keep the ranked passages.
 def make_runs(queries, depth=10, with_rerank=False):
     """Run BM25, dense, and hybrid (plus the re-ranker if asked) on every query; return the top `depth`
     of each as a long table. Re-ranker answers come from eval/rerank_cache.jsonl when cached."""
@@ -210,7 +206,6 @@ def write_xlsx(sheet, path=JUDGMENTS_XLSX):
     wb.save(path)
 
 
-# Read the labels as numbers. A blank means not judged yet, and Excel edits are copied in first.
 def load_judgments(path=JUDGMENTS):
     """The judging sheet with `label` as a nullable int (blank = not judged yet).
     Rows changed in judgments.xlsx are copied in first (see sync_from_xlsx)."""

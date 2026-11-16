@@ -130,7 +130,6 @@ def _save(query, where, sources, text, model_name):
 
 # --- calling Grok ---
 
-# Ask the model and hand back the answer in small pieces as they arrive.
 def _stream_grok(messages, model_name, key):
     """Yield text pieces from xAI's streaming chat completions endpoint (server-sent events)."""
     # Request a streamed answer. Turn a timeout or a dead connection into a short note.
@@ -159,7 +158,6 @@ def _stream_grok(messages, model_name, key):
         raise OverviewError(f"The connection to the xAI API broke off ({type(e).__name__}).") from None
 
 
-# Read the streamed answer piece by piece, and stop if it runs too long.
 def _read_events(resp):
     """Text pieces from a server-sent-events response, until [DONE] or the deadline."""
     # Stop if the answer takes too long, or when the stream says it is done.

@@ -1,8 +1,7 @@
-"""Show each method's scores, whether the gaps beat chance, and one question opened up.
-nDCG@10 scores the top 10 results. A relevant passage near the top counts more than one near the bottom.
-Recall@10 is the share of relevant passages that appear in the top 10.
-MRR is 1 divided by the rank of the first relevant passage.
-Results page: evaluation scores for every method, significance tests, and a per-question explorer.
+"""Results page: evaluation scores for every method, significance tests, and a per-question explorer.
+
+nDCG@10 rewards relevant passages near the top of the 10 results. Recall@10 is the share of relevant passages found in
+the top 10. MRR is 1 divided by the rank of the first relevant passage.
 
 Reads what eval.score wrote (eval/results/summary.csv, significance.csv, per_query.csv) plus
 eval/runs.csv and eval/judgments.csv for the example explorer. Rerun python -m eval.score after

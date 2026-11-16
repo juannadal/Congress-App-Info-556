@@ -1,10 +1,4 @@
-"""Score how well each method ranks passages a person has labeled.
-nDCG@10 scores the top 10 results. A relevant passage near the top counts more than one near the bottom.
-Recall@10 is the share of relevant passages that appear in the top 10.
-MRR is 1 divided by the rank of the first relevant passage.
-The pool for a question is every passage labeled for it.
-
-Score each method on the judged queries: nDCG@10, Recall@10, MRR, and significance tests.
+"""Score each method on the judged queries: nDCG@10, Recall@10, MRR, and significance tests.
 
 Reads eval/runs.csv (the rankings eval.pool judged) and the labels in eval/judgments.csv.
 
@@ -52,7 +46,6 @@ def dcg(gains):
     return float((gains / np.log2(np.arange(2, len(gains) + 2))).sum())
 
 
-# Score one method's top passages for a single question.
 def score_query(top, labels, k, min_relevant):
     """Metrics for one ranked list. `labels` maps passage_id -> label for every judged passage."""
     gains = [labels.get(pid, 0) for pid in top]
@@ -65,7 +58,6 @@ def score_query(top, labels, k, min_relevant):
             "unjudged": sum(pid not in labels for pid in top)}
 
 
-# Ask if a gap this large still shows up when each question's winner is flipped at random.
 def randomization_test(diffs, n_resamples=10000, seed=556):
     """Two-sided paired sign-flip test of mean(diffs) == 0."""
     diffs = np.asarray(diffs, dtype=float)

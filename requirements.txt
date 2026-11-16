@@ -1,7 +1,8 @@
-# Install CPU-only PyTorch first:
-#   python -m pip install --user torch --index-url https://download.pytorch.org/whl/cpu
+# Python 3.10-3.13. Inside a virtual environment (see README "Run it on your own computer"),
+# install CPU-only PyTorch first:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
 # Then:
-#   python -m pip install --user -r requirements.txt
+#   pip install -r requirements.txt
 torch>=2.2
 rank_bm25==0.2.2
 nltk==3.10.3
@@ -9,6 +10,8 @@ sentence-transformers==6.1.0
 chromadb==1.5.9
 streamlit==1.64.0
 pandas
+scipy
+altair
 requests
 Pillow
 openpyxl

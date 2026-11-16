@@ -169,7 +169,6 @@ def show_result(r, method, position, more=None):
     st.divider()
 
 
-# The user sees a short overview above the columns, with the passages it used listed underneath.
 def show_overview(last):
     """Grok's overview of the best ranking shown (re-ranker if it ran, else hybrid). Generated once per
     search and kept in session state, so other clicks don't call the API again."""

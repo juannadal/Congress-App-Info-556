@@ -102,7 +102,6 @@ def is_list_item(line):
     return len(stripped.split()) <= 12 and not re.search(r"[.!?\"”]$", stripped)
 
 
-# Walk the article and return each section's paragraphs and lists.
 def parse_sections(text):
     """Yield (section_path, [blocks]) where blocks are paragraphs or joined lists."""
     # Text before the first heading counts as the introduction.
@@ -187,7 +186,6 @@ def split_in_half(text):
     return [" ".join(sentences[:best]), " ".join(sentences[best:])]
 
 
-# Cut the passage in half until it fits the model, or until it cannot be split.
 def fit_tokens(text, prefix, count_tokens, max_tokens):
     """Halve text at sentence boundaries until prefix + text fits in max_tokens."""
     if count_tokens(prefix + text) <= max_tokens or len(text.split()) < 2:
@@ -214,7 +212,6 @@ def chunk_article(article, min_words, max_words, count_tokens, max_tokens):
     return passages
 
 
-# Return a counter that splits text the same way the embedding model does.
 def load_token_counter(model_name):
     """Count word pieces the way the embedding model will, including [CLS] and [SEP]."""
     from transformers import AutoTokenizer

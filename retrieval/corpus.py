@@ -1,6 +1,4 @@
-"""Read the saved passages about members of Congress and keep only the ones that match a filter.
-
-Load the passage corpus and apply metadata filters.
+"""Load the passage corpus and apply chamber, party, and state filters.
 
 This is the only module that knows where the corpus lives. The search code needs just a
 DataFrame with `passage_id` and a text column; the metadata columns are used for filters
@@ -30,7 +28,6 @@ def load_passages(congress=119, path=None):
     return df.reset_index(drop=True)
 
 
-# True for each passage that matches every part of the filter. A list of values means any of those values.
 def filter_mask(passages, where):
     """Boolean mask of passages matching every field in `where` (a value or a list of values)."""
     mask = pd.Series(True, index=passages.index)

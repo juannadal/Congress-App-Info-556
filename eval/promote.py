@@ -1,5 +1,4 @@
-"""Turn real searches into test questions, and never add the same question twice.
-Turn logged searches (eval/query_log.csv) into test queries (eval/queries.csv).
+"""Turn logged searches (eval/query_log.csv) into test queries (eval/queries.csv), never adding one twice.
 
 The log lists every search, so the same question run with BM25, dense, and hybrid appears
 three times; here each distinct question (text + filters) is listed once, newest first, and
@@ -50,7 +49,6 @@ def next_ids(queries, group, n):
     return [f"{prefix}{i:02d}" for i in range(start, start + n)]
 
 
-# Add the chosen questions to the test file, each with the next id for its group.
 def append_queries(queries, chosen, groups, notes):
     """Append questions (a DataFrame with KEY columns) to queries.csv with the next IDs; return the new rows."""
     rows = []
